@@ -114,7 +114,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         areaTabuleiro.setMinimumSize(new java.awt.Dimension(640, 480));
         areaTabuleiro.setPreferredSize(new java.awt.Dimension(640, 480));
 
-        pos00.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos00.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos00.setMaximumSize(new java.awt.Dimension(10, 10));
         pos00.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,7 +122,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos10.setMaximumSize(new java.awt.Dimension(10, 10));
         pos10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos20.setMaximumSize(new java.awt.Dimension(10, 10));
         pos20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -138,7 +138,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos30.setMaximumSize(new java.awt.Dimension(10, 10));
         pos30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,7 +146,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos40.setMaximumSize(new java.awt.Dimension(10, 10));
         pos40.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,7 +154,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos50.setMaximumSize(new java.awt.Dimension(10, 10));
         pos50.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -162,7 +162,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos01.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos01.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos01.setMaximumSize(new java.awt.Dimension(10, 10));
         pos01.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -170,7 +170,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos11.setMaximumSize(new java.awt.Dimension(10, 10));
         pos11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -178,7 +178,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos21.setMaximumSize(new java.awt.Dimension(10, 10));
         pos21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -186,7 +186,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos31.setMaximumSize(new java.awt.Dimension(10, 10));
         pos31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,7 +194,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos41.setMaximumSize(new java.awt.Dimension(10, 10));
         pos41.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -202,7 +202,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos51.setMaximumSize(new java.awt.Dimension(10, 10));
         pos51.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -210,7 +210,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos02.setMaximumSize(new java.awt.Dimension(10, 10));
         pos02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -218,7 +218,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos12.setMaximumSize(new java.awt.Dimension(10, 10));
         pos12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -226,7 +226,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos22.setMaximumSize(new java.awt.Dimension(10, 10));
         pos22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -234,7 +234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos32.setMaximumSize(new java.awt.Dimension(10, 10));
         pos32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -242,7 +242,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos42.setMaximumSize(new java.awt.Dimension(10, 10));
         pos42.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -250,7 +250,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos52.setMaximumSize(new java.awt.Dimension(10, 10));
         pos52.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -258,7 +258,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos03.setMaximumSize(new java.awt.Dimension(10, 10));
         pos03.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -266,7 +266,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos13.setMaximumSize(new java.awt.Dimension(10, 10));
         pos13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -274,7 +274,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos23.setMaximumSize(new java.awt.Dimension(10, 10));
         pos23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -282,7 +282,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos33.setMaximumSize(new java.awt.Dimension(10, 10));
         pos33.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -290,7 +290,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos43.setMaximumSize(new java.awt.Dimension(10, 10));
         pos43.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -298,7 +298,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos53.setMaximumSize(new java.awt.Dimension(10, 10));
         pos53.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -306,7 +306,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos15.setMaximumSize(new java.awt.Dimension(10, 10));
         pos15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -314,7 +314,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos05.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos05.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos05.setMaximumSize(new java.awt.Dimension(10, 10));
         pos05.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -322,7 +322,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos54.setMaximumSize(new java.awt.Dimension(10, 10));
         pos54.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -330,7 +330,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos44.setMaximumSize(new java.awt.Dimension(10, 10));
         pos44.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,7 +338,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos34.setMaximumSize(new java.awt.Dimension(10, 10));
         pos34.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -346,7 +346,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos04.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos04.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos04.setMaximumSize(new java.awt.Dimension(10, 10));
         pos04.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -354,7 +354,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos45.setMaximumSize(new java.awt.Dimension(10, 10));
         pos45.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -362,7 +362,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos14.setMaximumSize(new java.awt.Dimension(10, 10));
         pos14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -370,7 +370,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos55.setMaximumSize(new java.awt.Dimension(10, 10));
         pos55.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -378,7 +378,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos24.setMaximumSize(new java.awt.Dimension(10, 10));
         pos24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -386,7 +386,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos25.setMaximumSize(new java.awt.Dimension(10, 10));
         pos25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -394,7 +394,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        pos35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"))); // NOI18N
+        pos35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"))); // NOI18N
         pos35.setMaximumSize(new java.awt.Dimension(10, 10));
         pos35.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -454,7 +454,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(pos35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pos45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pos55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         areaTabuleiroLayout.setVerticalGroup(
             areaTabuleiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,16 +539,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         nomeJogador2.setText("Nome Jogador2");
 
-        pontosMovimentoJog1_1.setFont(new java.awt.Font("Tahoma", 1, 36));
+        pontosMovimentoJog1_1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         pontosMovimentoJog1_1.setText("6");
 
-        pontosMovimentoJog1_2.setFont(new java.awt.Font("Tahoma", 1, 36));
+        pontosMovimentoJog1_2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         pontosMovimentoJog1_2.setText("6");
 
-        pontosMovimentoJog2_1.setFont(new java.awt.Font("Tahoma", 1, 36));
+        pontosMovimentoJog2_1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         pontosMovimentoJog2_1.setText("6");
 
-        pontosMovimentoJog2_2.setFont(new java.awt.Font("Tahoma", 1, 36));
+        pontosMovimentoJog2_2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         pontosMovimentoJog2_2.setText("6");
 
         jLabel1.setText("Movimento Peca 1");
@@ -560,9 +560,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel4.setText("Movimento Peca 2");
 
         jLabel5.setFont(new java.awt.Font("Vijaya", 0, 48)); // NOI18N
-        jLabel5.setText("Punhalada");
+        jLabel5.setText("SHUTDOWN");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/punhalada.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/punhalada.jpg"))); // NOI18N
 
         javax.swing.GroupLayout inicioLayout = new javax.swing.GroupLayout(inicio);
         inicio.setLayout(inicioLayout);
@@ -576,7 +576,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(inicioLayout.createSequentialGroup()
                         .addGap(319, 319, 319)
                         .addComponent(jLabel6)))
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         inicioLayout.setVerticalGroup(
             inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,7 +585,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
 
         menuJogo.setText("Jogo");
@@ -652,7 +652,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(420, 420, 420)
                 .addComponent(nomeJogador2)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -680,14 +680,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(pontosMovimentoJog2_1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nomeJogador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pontosMovimentoJog2_2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(nomeJogador1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(pontosMovimentoJog2_2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel3))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -958,18 +956,18 @@ private void itemMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//G
     }
 
     private void carregaImagens() {
-        piso = new javax.swing.ImageIcon(getClass().getResource("/res/piso1.png"));
-        dado = new javax.swing.ImageIcon(getClass().getResource("/res/dados.gif"));
+        piso = new javax.swing.ImageIcon(getClass().getResource("/Resources/piso1.png"));
+        dado = new javax.swing.ImageIcon(getClass().getResource("/Resources/dados.gif"));
         seta1 = new Icon[4];
         seta2 = new Icon[4];
-        seta1[0] = new javax.swing.ImageIcon(getClass().getResource("/res/seta1_cima.png"));
-        seta1[1] = new javax.swing.ImageIcon(getClass().getResource("/res/seta1_dir.png"));
-        seta1[2] = new javax.swing.ImageIcon(getClass().getResource("/res/seta1_baix.png"));
-        seta1[3] = new javax.swing.ImageIcon(getClass().getResource("/res/seta1_esq.png"));
-        seta2[0] = new javax.swing.ImageIcon(getClass().getResource("/res/seta2_cima.png"));
-        seta2[1] = new javax.swing.ImageIcon(getClass().getResource("/res/seta2_dir.png"));
-        seta2[2] = new javax.swing.ImageIcon(getClass().getResource("/res/seta2_baix.png"));
-        seta2[3] = new javax.swing.ImageIcon(getClass().getResource("/res/seta2_esq.png"));
+        seta1[0] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_cima.png"));
+        seta1[1] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_dir.png"));
+        seta1[2] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_baix.png"));
+        seta1[3] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_esq.png"));
+        seta2[0] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_cima.png"));
+        seta2[1] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_dir.png"));
+        seta2[2] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_baix.png"));
+        seta2[3] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_esq.png"));
     }
 
     public void informaFaltaDeJogadores() {

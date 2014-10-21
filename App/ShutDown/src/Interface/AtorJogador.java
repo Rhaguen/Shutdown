@@ -73,17 +73,13 @@ public class AtorJogador {
                     }else{
                         telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getPiso());
                     }
-                    
                 }
             }
-        
         }
         
         public void click(int y, int x){
             System.out.println("X "+x+"   Y "+y);
-            // verifica click... se for peca, chama metodo no controle e marca posicao inicial
             controle.click(x, y);
-           
         }
 
 	public boolean confirmarSaidaJogo() {
@@ -101,11 +97,7 @@ public class AtorJogador {
 	public void informarFaltaDeJogadores() {
 		telaPrincipal.informaFaltaDeJogadores();
 	}
-
-	/**
-	 * 
-	 * @param nome
-	 */
+        
 	public void defineNomeJogador(String nome) {
 		throw new UnsupportedOperationException();
 	}
@@ -134,10 +126,6 @@ public class AtorJogador {
 		telaPrincipal.mostrarAnimacaoDado(num);
 	}
 
-	/**
-	 * 
-	 * @param num
-	 */
 	public void mostrarNumeroMovimentoPeca(int[] num) {
 		throw new UnsupportedOperationException();
 	}
@@ -154,26 +142,17 @@ public class AtorJogador {
             telaPrincipal.informaErro(msg,titulo);
         }
 
-	/**
-	 * 
-	 * @param jogador
-	 */
 	public void informaJogadorSemPecas(Jogador jogador) {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param jogador
-	 */
 	public void informaVencedor(Jogador jogador) {
 		throw new UnsupportedOperationException();
 	}
         
         public void atualizarTabuleiro(Tabuleiro tabuleiro) {
            
-        }
- 
+        } 
 
     public void informaJogadorNaoDaVez() {
         telaPrincipal.informaErro("Ainda não é seu turno. Aguarde sua vez de jogar.", "Não é sua vez.");
@@ -214,9 +193,7 @@ public class AtorJogador {
             telaPrincipal.getNomeJogador1().setText(nomeAdversario);
             telaPrincipal.getNomeJogador2().setText(controle.getJogadorLocal().getNome());
         }
-        controle.iniciarPartida();
-        
-        
+        controle.iniciarPartida();             
     }
     
     public void conectar(){
