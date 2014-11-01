@@ -12,11 +12,11 @@ import br.ufsc.inf.leobr.cliente.Jogada;
  */
 public class Posicao implements Jogada{
 
-	private Peca peca;
+	private Robo peca;
 	private boolean ocupada;
                 
         
-	public Peca getPeca() {
+	public Robo getPeca() {
 		return this.peca;
 	}
 
@@ -29,7 +29,7 @@ public class Posicao implements Jogada{
             ocupada = false;
 	}
 
-	public void setPeca(Peca peca) {
+	public void setPeca(Robo peca) {
 		this.peca = peca;
                 ocupada = true;
 	}

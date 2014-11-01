@@ -16,15 +16,15 @@ public class Jogador implements Jogada{
     private int pecasAtivas;
     private boolean naVez;
     private boolean prontoParaJogo;
-    private Peca[] pecas;
+    private Robo[] pecas;
     private int id;
 
     public Jogador(String nome) {
         this.nome = nome;
         pecasAtivas = 2;
-        pecas = new Peca[2];
-        pecas[0] = new Peca(this);
-        pecas[1] = new Peca(this);
+        pecas = new Robo[2];
+        pecas[0] = new Robo(this);
+        pecas[1] = new Robo(this);
         /*if(id == 1){
             pecas[0].setDirecao(2);
             pecas[1].setDirecao(2);
@@ -63,15 +63,15 @@ public class Jogador implements Jogada{
         return this.pecasAtivas;
     }
 
-    public Peca[] getPecas() {
+    public Robo[] getPecas() {
         return pecas;
     }
     
-    public Peca getPecaSelecionada(){                
-        if(pecas[0].isSelecionada()){
+    public Robo getPecaSelecionada(){                
+        if(pecas[0].estaSelecionado()){
             return pecas[0];
         }
-        else if (pecas[1].isSelecionada()){
+        else if (pecas[1].estaSelecionado()){
             return pecas[1];
         }
         else{
@@ -99,7 +99,7 @@ public class Jogador implements Jogada{
     
     
 
-    void removerPeca(Peca pecaFinal) {
+    void removerPeca(Robo pecaFinal) {
         if(pecas[0]==pecaFinal){
             pecas[0].setAtiva(false);
             pecasAtivas--;

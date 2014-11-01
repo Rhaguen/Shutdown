@@ -22,7 +22,7 @@ public class Tabuleiro implements Jogada{
         }
     }
 
-    public Peca getPeca(int[] pos) {
+    public Robo getPeca(int[] pos) {
         return posicoes[pos[1]][pos[0]].getPeca();
 
     }
@@ -39,7 +39,7 @@ public class Tabuleiro implements Jogada{
         return posicoes[pos[1]][pos[0]].isOcupada();
     }
 
-    public Peca getPeca(int pos) {
+    public Robo getPeca(int pos) {
         throw new UnsupportedOperationException();
     }
 
@@ -47,11 +47,11 @@ public class Tabuleiro implements Jogada{
         posicoes[pos[1]][ pos[0]].removePeca();
     }
 
-    public void movePeca(Peca peca, int[] pos) {
+    public void movePeca(Robo peca, int[] pos) {
         posicoes[pos[1]][ pos[0]].setPeca(peca);
     }
 
-    public Posicao getPosicao(int x, int y) {
+    public Posicao recuperarPosicao(int x, int y) {
         return posicoes[y][x];
     }
 
@@ -59,7 +59,7 @@ public class Tabuleiro implements Jogada{
         return posicoes[pos[1]][ pos[0]];
     }
 
-    public void preparaTabuleiro(Peca[] pcJog1, Peca[] pcJog2) {
+    public void preparaTabuleiro(Robo[] pcJog1, Robo[] pcJog2) {
         posicoes[0][2].setPeca(pcJog1[0]);
         posicoes[0][3].setPeca(pcJog1[1]);
         posicoes[5][2].setPeca(pcJog2[0]);
