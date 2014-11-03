@@ -67,7 +67,7 @@ public class Jogador implements Jogada{
         return pecas;
     }
     
-    public Robo getPecaSelecionada(){                
+    public Robo informaRoboSelecionado(){                
         if(pecas[0].estaSelecionado()){
             return pecas[0];
         }

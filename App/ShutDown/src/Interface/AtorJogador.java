@@ -64,11 +64,11 @@ public class AtorJogador {
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 6; j++) {
                     posicao = partida.getTabuleiro().recuperarPosicao(j, i);
-                    if (posicao.isOcupada()) {
-                        if (posicao.getPeca().getJogador().getId() == 1) {
-                            telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta1()[posicao.getPeca().getDirecao()]);
+                    if (posicao.estaOcupada()) {
+                        if (posicao.informaRobo().getJogador().getId() == 1) {
+                            telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta1()[posicao.informaRobo().getDirecao()]);
                         } else {
-                            telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta2()[posicao.getPeca().getDirecao()]);
+                            telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta2()[posicao.informaRobo().getDirecao()]);
                         }
                     }else{
                         telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getPiso());
@@ -79,7 +79,10 @@ public class AtorJogador {
         
         public void click(int y, int x){
             System.out.println("X "+x+"   Y "+y);
-            partida.click(x, y);
+            boolean daVez = partida.click(x, y);
+            if(!daVez){
+                informaNaoDaVez();
+            }
         }
 
 	public boolean confirmarSaidaJogo() {
@@ -154,7 +157,7 @@ public class AtorJogador {
            
         } 
 
-    public void informaJogadorNaoDaVez() {
+    public void informaNaoDaVez() {
         telaPrincipal.informaErro("Ainda não é seu turno. Aguarde sua vez de jogar.", "Não é sua vez.");
     }
 

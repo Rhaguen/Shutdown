@@ -16,20 +16,20 @@ public class Posicao implements Jogada{
 	private boolean ocupada;
                 
         
-	public Robo getPeca() {
+	public Robo informaRobo() {
 		return this.peca;
 	}
 
-	public boolean isOcupada() {
+	public boolean estaOcupada() {
 		return this.ocupada;
 	}
 
-	public void removePeca() {
+	public void removeRobo() {
             peca = null;
             ocupada = false;
 	}
 
-	public void setPeca(Robo peca) {
+	public void atribuiRobo(Robo peca) {
 		this.peca = peca;
                 ocupada = true;
 	}

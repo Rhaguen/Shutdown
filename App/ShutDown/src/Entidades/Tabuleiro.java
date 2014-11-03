@@ -23,7 +23,7 @@ public class Tabuleiro implements Jogada{
     }
 
     public Robo getPeca(int[] pos) {
-        return posicoes[pos[1]][pos[0]].getPeca();
+        return posicoes[pos[1]][pos[0]].informaRobo();
 
     }
 
@@ -36,7 +36,7 @@ public class Tabuleiro implements Jogada{
     }
 
     public boolean verificaPosicaoOcupada(int[] pos) {
-        return posicoes[pos[1]][pos[0]].isOcupada();
+        return posicoes[pos[1]][pos[0]].estaOcupada();
     }
 
     public Robo getPeca(int pos) {
@@ -44,11 +44,11 @@ public class Tabuleiro implements Jogada{
     }
 
     public void removePeca(int[] pos) {
-        posicoes[pos[1]][ pos[0]].removePeca();
+        posicoes[pos[1]][ pos[0]].removeRobo();
     }
 
     public void movePeca(Robo peca, int[] pos) {
-        posicoes[pos[1]][ pos[0]].setPeca(peca);
+        posicoes[pos[1]][ pos[0]].atribuiRobo(peca);
     }
 
     public Posicao recuperarPosicao(int x, int y) {
@@ -60,10 +60,10 @@ public class Tabuleiro implements Jogada{
     }
 
     public void preparaTabuleiro(Robo[] pcJog1, Robo[] pcJog2) {
-        posicoes[0][2].setPeca(pcJog1[0]);
-        posicoes[0][3].setPeca(pcJog1[1]);
-        posicoes[5][2].setPeca(pcJog2[0]);
-        posicoes[5][3].setPeca(pcJog2[1]);
+        posicoes[0][2].atribuiRobo(pcJog1[0]);
+        posicoes[0][3].atribuiRobo(pcJog1[1]);
+        posicoes[5][2].atribuiRobo(pcJog2[0]);
+        posicoes[5][3].atribuiRobo(pcJog2[1]);
         pcJog1[0].setDirecao(2);
         pcJog1[1].setDirecao(2);
     }

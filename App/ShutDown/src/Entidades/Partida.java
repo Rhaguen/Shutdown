@@ -13,18 +13,15 @@ import Interface.AtorJogador;
  * @author eduardo
  */
 public class Partida {
-    private int estadoJogo;
     private boolean partidaEmAndamento;
     private Jogador jogadorA;
     private Jogador jogadorB;
     private Jogador jogadorAtual;
     private Jogador jogadorTemp;
-    private Jogador vencedor;
     private Tabuleiro tabuleiro;
     private AtorJogador atorJogador;
     private int[] posicoesIniciais;
     private int[] posicoesFinais;
-    //private boolean pecaSelecionada;
     private boolean conectado;
     Movimento movimento;
 
@@ -36,28 +33,29 @@ public class Partida {
         posicoesFinais = new int[2];
     }
 
-    public void click(int x, int y) {
+    public boolean click(int x, int y) {
         if (jogadorTemp == jogadorAtual) {
             Posicao posicao = tabuleiro.recuperarPosicao(x, y);
-            if (posicao.isOcupada() && posicao.getPeca().getJogador() == jogadorAtual) {
+            if (posicao.estaOcupada() && posicao.informaRobo().getJogador() == jogadorAtual) {
                 // testar se a peça é do jogador
                 // veriricar se tem peca selecionada, para calcular distancia de movimento                
                 posicoesIniciais[0] = x;
-                posicoesIniciais[1] = y;
-                clickRobo(posicao.getPeca());
+                posicoesIniciais[1] = y;    
+                clickRobo(posicao.informaRobo());
 
             } else {
-                Robo peca = jogadorAtual.getPecaSelecionada();
-                if (peca != null) {
+                Robo robo = jogadorAtual.informaRoboSelecionado();
+                if (robo != null) {
                     posicoesFinais[0] = x;
                     posicoesFinais[1] = y;
                     System.out.println("Destino peça selecionado, iniciando calculo de distancia");
                     verificarJogada(posicoesIniciais, posicoesFinais);// USE CASE
-                    clickRobo(peca);
+                    clickRobo(robo);
                 }
             }
+            return true;
         } else {
-            atorJogador.informaJogadorNaoDaVez();
+            return false;
         }
     }
 
