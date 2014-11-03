@@ -34,10 +34,6 @@ public class Robo implements Jogada{
         return this.jogador;
     }
 
-    public void operation() {
-        throw new UnsupportedOperationException();
-    }
-
     public void mudaEstadoSelecao() {
         throw new UnsupportedOperationException();
     }
