@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Entidades;
+
 import br.ufsc.inf.leobr.cliente.Jogada;
+
 /**
  *
  * @author eduardo
  */
-public class Movimento implements Jogada{
+public class Movimento implements Jogada {
+
     protected Tabuleiro tabuleiro;
     protected Jogador jogador1;
     protected Jogador jogador2;
     protected Jogador jogadorDaVez;
     protected boolean passarTurno;
-    
-    public Movimento(Tabuleiro tabuleiro, Jogador jogador1, Jogador jogador2, Jogador jogadorDaVez){
+
+    public Movimento(Tabuleiro tabuleiro, Jogador jogador1, Jogador jogador2, Jogador jogadorDaVez) {
         this.tabuleiro = tabuleiro;
         this.jogador1 = jogador1;
         this.jogador2 = jogador2;
@@ -38,7 +40,7 @@ public class Movimento implements Jogada{
 
     public void setJogadorDaVez(Jogador jogadorDaVez) {
         this.jogadorDaVez = jogadorDaVez;
-    }        
+    }
 
     public Tabuleiro getTabuleiro() {
         return tabuleiro;

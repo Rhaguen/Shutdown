@@ -13,35 +13,26 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Jogador implements Jogada{
 
     private String nome;
-    private int pecasAtivas;
+    private int robosAtivos;
     private boolean naVez;
     private boolean prontoParaJogo;
-    private Robo[] pecas;
+    private Robo[] robos;
     private int id;
 
     public Jogador(String nome) {
         this.nome = nome;
-        pecasAtivas = 2;
-        pecas = new Robo[2];
-        pecas[0] = new Robo(this);
-        pecas[1] = new Robo(this);
-        /*if(id == 1){
-            pecas[0].setDirecao(2);
-            pecas[1].setDirecao(2);
-        }
-        else{
-            pecas[0].setDirecao(0);
-            pecas[1].setDirecao(0);
-        }*/
-                
+        robosAtivos = 2;
+        robos = new Robo[2];
+        robos[0] = new Robo(this);
+        robos[1] = new Robo(this);
     }
 
     public int pecasAMovimentar() {
         int quant = 0;
-        if(pecas[0].isAtiva()&&(pecas[0].getMovimento() > 0)){
+        if(robos[0].isAtiva()&&(robos[0].getMovimento() > 0)){
             quant ++;
         }
-        if(pecas[1].isAtiva()&&(pecas[1].getMovimento() > 0)){
+        if(robos[1].isAtiva()&&(robos[1].getMovimento() > 0)){
             quant ++;
         }
         return quant;
@@ -52,27 +43,27 @@ public class Jogador implements Jogada{
     }
 
     public int[] rolarDados() {
-        int[] result = new int[pecas.length];
-        for (int i = 0; i < pecas.length; i++) {
-            result[i] = pecas[i].rolarDado();
+        int[] result = new int[robos.length];
+        for (int i = 0; i < robos.length; i++) {
+            result[i] = robos[i].rolarDado();
         }
         return result;
     }
 
-    public int getPecasAtivas() {
-        return this.pecasAtivas;
+    public int getRobosAtivos() {
+        return this.robosAtivos;
     }
 
-    public Robo[] getPecas() {
-        return pecas;
+    public Robo[] getRobos() {
+        return robos;
     }
     
     public Robo informaRoboSelecionado(){                
-        if(pecas[0].estaSelecionado()){
-            return pecas[0];
+        if(robos[0].estaSelecionado()){
+            return robos[0];
         }
-        else if (pecas[1].estaSelecionado()){
-            return pecas[1];
+        else if (robos[1].estaSelecionado()){
+            return robos[1];
         }
         else{
             return null;
@@ -100,13 +91,13 @@ public class Jogador implements Jogada{
     
 
     void removerPeca(Robo pecaFinal) {
-        if(pecas[0]==pecaFinal){
-            pecas[0].setAtiva(false);
-            pecasAtivas--;
+        if(robos[0]==pecaFinal){
+            robos[0].setAtiva(false);
+            robosAtivos--;
         }
-        if(pecas[1]==pecaFinal){
-            pecas[1].setAtiva(false);
-            pecasAtivas--;
+        if(robos[1]==pecaFinal){
+            robos[1].setAtiva(false);
+            robosAtivos--;
         }
     }
 }

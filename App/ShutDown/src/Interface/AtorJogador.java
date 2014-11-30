@@ -3,224 +3,234 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Interface;
 
 import Entidades.*;
 import Rede.AtorNetGames;
+import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author eduardo
  */
 public class AtorJogador {
+
     private Partida partida;
-        private TelaPrincipal telaPrincipal;
-        private AtorNetGames netGames;
+    private TelaPrincipal telaPrincipal;
+    private AtorNetGames netGames;
+
+    public AtorJogador() {
+        this.partida = new Partida(this);
+        this.netGames = new AtorNetGames(this);
+        this.telaPrincipal = new TelaPrincipal(this);
+        this.telaPrincipal.setVisible(true);
+    }
+    
+    public void iniciarPartida(){
+        // Conecta ao servidor de jogos
+        this.conectar();
         
-        public AtorJogador(){
-           this.partida = new Partida(this);
-           netGames = new AtorNetGames(this);
-           telaPrincipal = new TelaPrincipal(this);
-           telaPrincipal.setVisible(true);
+        // Dispara solicitação de início de partida
+        this.netGames.iniciarPartida();
+        
+        // Desabilita o botão de iniciar partida
+        this.telaPrincipal.habilitarIniciar(false);
+    }
+    
+    public void conectar() {
+        if (!this.netGames.isConectado()) {
+            String nomeJogador = telaPrincipal.solicitaDados("Informe seu Nome:");
+            String servidor = telaPrincipal.solicitaDados("Informe qual Servidor para conexão:\nPadrão: venus.inf.ufsc.br");
+            if (servidor.equals("")) {
+                servidor = "venus.inf.ufsc.br";
+            }
+            
+            if (netGames.conectar(servidor, nomeJogador)){ 
+                this.partida.setJogadorLocal(new Jogador(nomeJogador));
+            }
+            else{
+                telaPrincipal.informaErro("Não foi possivel conectar no servidor: " + servidor, "Erro de conexão");
+            }
+        }
+    }
+    
+    public void iniciarPartida(Integer posicao) {
+        this.telaPrincipal.mostrarTelaJogo(true);
+        
+        String nomeAdversario = netGames.informarNomeAdversario(partida.getJogadorLocal().getNome());
+        
+        if (posicao == 1) {
+            this.partida.setJogador1(partida.getJogadorLocal());
+            this.partida.setJogador2(new Jogador(nomeAdversario));
+            this.partida.getJogadorLocal().setNaVez(true);
+            this.partida.setJogadorDaVez(partida.getJogadorLocal());
+            this.telaPrincipal.setNomeJogador1(partida.getJogadorLocal().getNome());
+            this.telaPrincipal.setNomeJogador2(nomeAdversario);
+        }
+        else if (posicao == 2) {
+            this.partida.setJogador1(new Jogador(nomeAdversario));
+            this.partida.setJogador2(partida.getJogadorLocal());
+            this.telaPrincipal.setNomeJogador1(nomeAdversario);
+            this.telaPrincipal.setNomeJogador2(partida.getJogadorLocal().getNome());
+        }
+        
+        this.partida.iniciarPartida();
+    }
+    
+    public void atualizarInterface() {
+        Posicao posicao;
+        if (partida.getJogador1().getRobos()[0].isAtiva()) {
+            telaPrincipal.getPontosMovimentoJog1_1().setText(partida.getJogador1().getRobos()[0].getMovimento() + "");
+        } else {
+            telaPrincipal.getPontosMovimentoJog1_1().setText("X");
+        }
+        if (partida.getJogador1().getRobos()[1].isAtiva()) {
+            telaPrincipal.getPontosMovimentoJog1_2().setText(partida.getJogador1().getRobos()[1].getMovimento() + "");
+        } else {
+            telaPrincipal.getPontosMovimentoJog1_2().setText("X");
+        }
+        if (partida.getJogador2().getRobos()[0].isAtiva()) {
+            telaPrincipal.getPontosMovimentoJog2_1().setText(partida.getJogador2().getRobos()[0].getMovimento() + "");
+        } else {
+            telaPrincipal.getPontosMovimentoJog2_1().setText("X");
+        }
+        if (partida.getJogador2().getRobos()[1].isAtiva()) {
+            telaPrincipal.getPontosMovimentoJog2_2().setText(partida.getJogador2().getRobos()[1].getMovimento() + "");
+        } else {
+            telaPrincipal.getPontosMovimentoJog2_2().setText("X");
         }
 
-	public void passarTurno() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void mostrarTelaInicial() {
-		throw new UnsupportedOperationException();
-	}
-
-	public boolean confirmarTerminoPartida() {
-		throw new UnsupportedOperationException();
-	}
-        
-        public void atualizarInterface(){
-           Posicao posicao;
-           if(partida.getJogador1().getPecas()[0].isAtiva()){
-               telaPrincipal.getPontosMovimentoJog1_1().setText(partida.getJogador1().getPecas()[0].getMovimento()+"");
-           } else{
-               telaPrincipal.getPontosMovimentoJog1_1().setText("X");
-           }
-           if(partida.getJogador1().getPecas()[1].isAtiva()){
-               telaPrincipal.getPontosMovimentoJog1_2().setText(partida.getJogador1().getPecas()[1].getMovimento()+"");
-           } else{
-               telaPrincipal.getPontosMovimentoJog1_2().setText("X");
-           }
-           if(partida.getJogador2().getPecas()[0].isAtiva()){
-               telaPrincipal.getPontosMovimentoJog2_1().setText(partida.getJogador2().getPecas()[0].getMovimento()+"");
-           } else{
-               telaPrincipal.getPontosMovimentoJog2_1().setText("X");
-           }
-           if(partida.getJogador2().getPecas()[1].isAtiva()){
-               telaPrincipal.getPontosMovimentoJog2_2().setText(partida.getJogador2().getPecas()[1].getMovimento()+"");
-           } else{
-               telaPrincipal.getPontosMovimentoJog2_2().setText("X");
-           }
-           
-          
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 6; j++) {
-                    posicao = partida.getTabuleiro().recuperarPosicao(j, i);
-                    if (posicao.estaOcupada()) {
-                        if (posicao.informaRobo().getJogador().getId() == 1) {
-                            telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta1()[posicao.informaRobo().getDirecao()]);
-                        } else {
-                            telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta2()[posicao.informaRobo().getDirecao()]);
-                        }
-                    }else{
-                        telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getPiso());
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                posicao = partida.getTabuleiro().recuperarPosicao(j, i);
+                if (posicao.estaOcupada()) {
+                    if (posicao.informaRobo().getJogador().getId() == 1) {
+                        telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta1()[posicao.informaRobo().getDirecao()]);
+                    } else {
+                        telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getSeta2()[posicao.informaRobo().getDirecao()]);
                     }
+                } else {
+                    telaPrincipal.getMapaPosicoes()[i][j].setIcon(telaPrincipal.getPiso());
                 }
             }
         }
-        
-        public void click(int y, int x){
-            System.out.println("X "+x+"   Y "+y);
-            boolean daVez = partida.click(x, y);
-            if(!daVez){
-                informaNaoDaVez();
-            }
+    }
+
+    public void click(int y, int x) {
+        this.partida.click(x, y);
+        if (!this.partida.isJogadorDaVez()) {
+            this.informaNaoDaVez();
         }
+    }
 
-	public boolean confirmarSaidaJogo() {
-		throw new UnsupportedOperationException();
-	}
+    public void informarPartidaEmAndamento() {
+        telaPrincipal.informaPartidaEmAndamento();
+    }
 
-	public void iniciarPartida() {
-		throw new UnsupportedOperationException();
-	}
+    public void informarFaltaDeJogadores() {
+        telaPrincipal.informaFaltaDeJogadores();
+    }
 
-	public void informarPartidaEmAndamento() {
-		telaPrincipal.informaPartidaEmAndamento();
-	}
+    public void mudaEstadoSelecaoPeca(boolean selecionado) {
+        telaPrincipal.mudaCorSelecao(selecionado);
+    }
 
-	public void informarFaltaDeJogadores() {
-		telaPrincipal.informaFaltaDeJogadores();
-	}
-        
-	public void defineNomeJogador(String nome) {
-		throw new UnsupportedOperationException();
-	}
+    public void mostrarAnimacaoDado(int[] num) {
+        telaPrincipal.mostrarAnimacaoDado(num);
+    }
 
-	public void informarQuemInicia() {
-		throw new UnsupportedOperationException();
-	}
+    public void informaPosicaoOcupada() {
+        telaPrincipal.informaErro("A posição já está ocupada.", "Não pode movimentar");
+    }
 
-	public void mostrarTelaJogo() {
-		throw new UnsupportedOperationException();
-	}
+    public void informaFaltaPontosMovimento() {
+        telaPrincipal.informaErro("Não há pontos de movimento suficiente. Movimente uma casa por vez.", "Não pode movimentar.");
+    }
 
-	public void informaPecaDeOutroJogador() {
-		throw new UnsupportedOperationException();
-	}
+    public void informaDistanciaInadequada() {
+        telaPrincipal.informaErro("Só é possivel mover a peça uma posição por vez.", "Não pode movimentar");
+    }
 
-	public void informaPecaJaMovimentou() {
-		throw new UnsupportedOperationException();
-	}
+    public void informaPartidaJahEncerrada() {
+        telaPrincipal.informaErro("A partida já foi encerrada.", "Não pode movimentar");
+    }
 
-	public void mudaEstadoSelecaoPeca(boolean selecionado) {
-		telaPrincipal.mudaCorSelecao(selecionado);
-	}
-
-	public void mostrarAnimacaoDado(int [] num) {
-		telaPrincipal.mostrarAnimacaoDado(num);
-	}
-
-	public void mostrarNumeroMovimentoPeca(int[] num) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void informaPosicaoOcupada() {
-            telaPrincipal.informaErro("A posição já está ocupada.", "Erro ao movimentar");
-	}
-
-	public void informaFaltaPontosMovimento() {
-            telaPrincipal.informaErro("Não há pontos de movimento suficiente. Movimente uma casa por vez.", "Não pode movimentar.");
-	}
-        
-        public void informaErro(String msg, String titulo){
-            telaPrincipal.informaErro(msg,titulo);
-        }
-
-	public void informaJogadorSemPecas(Jogador jogador) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void informaVencedor(Jogador jogador) {
-		throw new UnsupportedOperationException();
-	}
-        
-        public void atualizarTabuleiro(Tabuleiro tabuleiro) {
-           
-        } 
+    public void informaErro(String msg, String titulo) {
+        telaPrincipal.informaErro(msg, titulo);
+    }
 
     public void informaNaoDaVez() {
         telaPrincipal.informaErro("Ainda não é seu turno. Aguarde sua vez de jogar.", "Não é sua vez.");
     }
 
     public void receberJogada(Movimento movimento) {
+        // Atualiza o jogo de acordo com os dados recebidos no movimento
         partida.setJogador1(movimento.getJogador1());
         partida.setJogador2(movimento.getJogador2());
         partida.setTabuleiro(movimento.getTabuleiro());
         partida.setJogadorDaVez(movimento.getJogadorDaVez());
-        System.out.println("jogador 1 "+partida.getJogador1().getNome()+" jogador 2 "+partida.getJogador2().getNome()+" Jogador da vez "+partida.getJogadorDaVez().getNome()+" Jogador Local "+ partida.getJogadorLocal().getNome());
-        if(movimento.isPassarTurno()){
-            System.out.println("Movimento eh passar turno: "+movimento.isPassarTurno());
-            movimento.setPassarTurno(false);
-            System.out.println("tovivio");
-            
-            System.out.println("ainda tovivio");
-            partida.passarTurno();
-        }
+        
+        // Atualiza a interface
         this.atualizarInterface();
-        partida.verificarVencedor(partida.getJogadorDaVez());
+        
+        // Verifica se houve vencedor
+        this.partida.verificarVencedor();
     }
 
-    public void iniciarPartida(Integer posicao) {
-        telaPrincipal.mostrarTelaJogo();
-        String nomeAdversario = netGames.informarNomeAdversario(partida.getJogadorLocal().getNome());
-        if(posicao == 1){
-            partida.setJogador1(partida.getJogadorLocal());            
-            partida.setJogador2(new Jogador(nomeAdversario));
-            partida.getJogadorLocal().setNaVez(true);
-            partida.setJogadorDaVez(partida.getJogadorLocal());
-            telaPrincipal.getNomeJogador1().setText(partida.getJogadorLocal().getNome());
-            telaPrincipal.getNomeJogador2().setText(nomeAdversario);
+    public void receberMensagem(Mensagem mensagem) {
+        switch (mensagem.getTipoMensagem()) {
+            // Passar Turno
+            case 1:
+                this.partida.passarTurno();
+                this.atualizarInterface();
+                break;
+                
+            // Desistencia do adversário
+            case 2:
+                desistir(true);
+                break;
         }
-        if(posicao == 2){
-            partida.setJogador1(new Jogador(nomeAdversario));
-            partida.setJogador2(partida.getJogadorLocal());
-            telaPrincipal.getNomeJogador1().setText(nomeAdversario);
-            telaPrincipal.getNomeJogador2().setText(partida.getJogadorLocal().getNome());
+    }
+
+    public void desistir(boolean adversarioDesistiu) {
+        // Verifica quem desistiu
+        if (adversarioDesistiu) {
+            telaPrincipal.informaErro("Seu adversário Desistiu!! Parabéns, você venceu!!", "Vencedor!!");
+        } else {
+            // O jogador que desiste envia mensagem ao outro jogador informando a desistencia
+            netGames.enviarJogada(new Mensagem(2, "desistir"));
+            
+            telaPrincipal.informaErro("Você Desistiu. Seu Kitter!!.", "Kitter!!");
         }
-        partida.iniciarPartida();             
+        
+        this.encerrarPartida();
     }
     
-    public void conectar(){
-        if(partida.isConectado()){
-            telaPrincipal.informaErro("Conexão já estabelecida", "Erro Conexão");
-        }
-        else{
-            String nomeJogador = telaPrincipal.solicitaDados("Informe seu Nome:");
-            String servidor = telaPrincipal.solicitaDados("Informe qual Servidor para conexão:\nPadrão: venus.inf.ufsc.br");
-            if(servidor.equals("")){
-                servidor = "venus.inf.ufsc.br";
-            }
-            if(netGames.conectar(servidor, nomeJogador)){
-                partida.setConectado(true);
-                partida.setJogadorLocal(new Jogador(nomeJogador));
-                netGames.iniciarPartida();
-            }
-            else{
-                telaPrincipal.informaErro("Não foi possivel conectar no servidor: "+servidor, "Erro de conexão");
-            }
-        }      
+    public void encerrarPartida() {
+        // Desconecta do servidor de jogo
+        this.netGames.desconectar();
+        
+        // Reinicia os dados de partida e interface
+        zerarJogo();
+        zerarInterface();
+    }
+
+    public void zerarJogo() {
+        this.partida = new Partida(this);
+    }
+
+    public void zerarInterface() {
+        telaPrincipal.mostrarTelaJogo(false);
     }
 
     public void enviarJogada(Movimento movimento) {
         netGames.enviarJogada(movimento);
     }
+    
+    public void enviarMensagem(Mensagem mensagem) {
+        netGames.enviarJogada(mensagem);
+    }
+    
 }

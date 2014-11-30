@@ -3,34 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Entidades;
+
 import br.ufsc.inf.leobr.cliente.Jogada;
+
 /**
  *
  * @author eduardo
  */
-public class Posicao implements Jogada{
+public class Posicao implements Jogada {
 
-	private Robo peca;
-	private boolean ocupada;
-                
-        
-	public Robo informaRobo() {
-		return this.peca;
-	}
+    private Robo peca;
+    private boolean ocupada;
 
-	public boolean estaOcupada() {
-		return this.ocupada;
-	}
+    public Robo informaRobo() {
+        return this.peca;
+    }
 
-	public void removeRobo() {
-            peca = null;
-            ocupada = false;
-	}
+    public boolean estaOcupada() {
+        return this.ocupada;
+    }
 
-	public void atribuiRobo(Robo peca) {
-		this.peca = peca;
-                ocupada = true;
-	}
+    public void removeRobo() {
+        peca = null;
+        ocupada = false;
+    }
+
+    public void atribuiRobo(Robo peca) {
+        this.peca = peca;
+        ocupada = true;
+    }
 }

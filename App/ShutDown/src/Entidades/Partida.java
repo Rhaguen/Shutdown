@@ -14,223 +14,43 @@ import Interface.AtorJogador;
  */
 public class Partida {
     private boolean partidaEmAndamento;
-    private Jogador jogadorA;
-    private Jogador jogadorB;
+    private Jogador jogador1;
+    private Jogador jogador2;
     private Jogador jogadorAtual;
-    private Jogador jogadorTemp;
+    private Jogador jogador;
     private Tabuleiro tabuleiro;
     private AtorJogador atorJogador;
-    private int[] posicoesIniciais;
-    private int[] posicoesFinais;
+    private int[] posicaoInicial;
+    private int[] posicaoFinal;
     private boolean conectado;
-    Movimento movimento;
-
-    public Partida(AtorJogador atorJogador) {
-        this.atorJogador = atorJogador;
-        tabuleiro = new Tabuleiro();
-        
-        posicoesIniciais = new int[2];
-        posicoesFinais = new int[2];
-    }
-
-    public boolean click(int x, int y) {
-        if (jogadorTemp == jogadorAtual) {
-            Posicao posicao = tabuleiro.recuperarPosicao(x, y);
-            if (posicao.estaOcupada() && posicao.informaRobo().getJogador() == jogadorAtual) {
-                // testar se a peça é do jogador
-                // veriricar se tem peca selecionada, para calcular distancia de movimento                
-                posicoesIniciais[0] = x;
-                posicoesIniciais[1] = y;    
-                clickRobo(posicao.informaRobo());
-
-            } else {
-                Robo robo = jogadorAtual.informaRoboSelecionado();
-                if (robo != null) {
-                    posicoesFinais[0] = x;
-                    posicoesFinais[1] = y;
-                    System.out.println("Destino peça selecionado, iniciando calculo de distancia");
-                    verificarJogada(posicoesIniciais, posicoesFinais);// USE CASE
-                    clickRobo(robo);
-                }
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void clickRobo(Robo robo) {
-        boolean selecionado = !robo.estaSelecionado();
-        robo.setarSelecionado(selecionado);
-        atorJogador.mudaEstadoSelecaoPeca(selecionado);
-        
-//        if (robo.estaSelecionado()) {
-//            robo.setarSelecionado(false);
-//            //pecaSelecionada = false;
-//            atorJogador.mudaEstadoSelecaoPeca(false);
-//
-//        } else {
-//            robo.setarSelecionado(true);
-//            //pecaSelecionada = true;
-//            atorJogador.mudaEstadoSelecaoPeca(true);
-//        }
-        System.out.println("Posição Ocupada--Peca Selecionada: " + robo.estaSelecionado());
-    }
-
-    public void passarTurno() {
-        if(jogadorAtual == jogadorA){
-            System.out.println("Jogador da vez1 "+jogadorAtual.getNome()+" jogador que vai assumir a vez "+jogadorB.getNome());
-            jogadorAtual = jogadorB;
-        }
-        else{
-            System.out.println("Jogador da vez2 "+jogadorAtual.getNome()+" jogador que vai assumir a vez "+jogadorB.getNome());
-            jogadorAtual = jogadorA;
-        }
-        if(jogadorAtual.getNome().equals(jogadorTemp.getNome())){
-            jogadorTemp = jogadorAtual;
-            rolarDados();
-            movimento = new Movimento(tabuleiro, jogadorA, jogadorB, jogadorAtual);
-            System.out.println("Rolou dados na passada de turno");
-            atorJogador.atualizarInterface();
-        }
-    }
+    private Movimento movimento;
     
-
-    public void encerrarPartida() {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean iniciarPartida() {
-        if (partidaEmAndamento) {
-            atorJogador.informarPartidaEmAndamento();
-            return false;
-        }
-        if (jogadorA == null || jogadorB == null) {
-            atorJogador.informarFaltaDeJogadores();
-            return false;
-        }
-        jogadorA.setId(1);
-        jogadorB.setId(2);
-        tabuleiro.preparaTabuleiro(jogadorA.getPecas(), jogadorB.getPecas());        
-        rolarDados();
-        atorJogador.atualizarInterface();
-        movimento = new Movimento(tabuleiro, jogadorA, jogadorB, jogadorAtual);
-        verificarVencedor(jogadorAtual);
-        atorJogador.enviarJogada(movimento);
-        return true;
-    }
-
-    public void sortearInicio() {
-        throw new UnsupportedOperationException();
-    }
-
-    public void rolarDados() {
-        int[] resultado = jogadorAtual.rolarDados();
-        atorJogador.mostrarAnimacaoDado(resultado);
-    }
-
-    public boolean verificarJogada(int[] posInicial, int[] posFinal) {
-        Robo peca = tabuleiro.getPeca(posInicial);
-        int distancia = tabuleiro.calculaDistancia(posInicial, posFinal);
-        System.out.println("Distancia: " + distancia);
-        int mov = peca.getMovimento();
-        if (mov > 0 && distancia == 1) {
-            boolean ocupada = tabuleiro.verificaPosicaoOcupada(posFinal);
-            if (ocupada) {
-                Robo pecaFinal = tabuleiro.getPeca(posFinal);
-                Jogador dono = pecaFinal.getJogador();
-                if (dono != jogadorAtual) {
-                    Posicao costasDefensor = pecaFinal.getPosicaoCostas();
-                    if (tabuleiro.getPosicao(posInicial) == costasDefensor) {
-                        tabuleiro.removePeca(posFinal);
-                        dono.removerPeca(pecaFinal);
-                    } else {
-                        atorJogador.informaPosicaoOcupada();
-                        return false;
-                    }
-                } else {
-                    atorJogador.informaPosicaoOcupada();
-                    return false;
-                }
-            }
-
-            System.out.println("Jogada Valida");
-            peca.setPosicaoCostas(tabuleiro.getPosicao(posInicial));
-            peca.diminuiMovimento();
-            tabuleiro.movePeca(peca, posFinal);
-            tabuleiro.removePeca(posInicial);
-            int direcao = tabuleiro.calcularDirecao(posInicial, posFinal);
-            peca.setDirecao(direcao);
-
-            atorJogador.atualizarInterface();
-            atorJogador.enviarJogada(movimento);
-            verificarVencedor(jogadorAtual);            
-            if(jogadorAtual.pecasAMovimentar() < 1){
-                movimento.setPassarTurno(true);
-                atorJogador.enviarJogada(movimento);
-                passarTurno();
-            }
-            
-            return true;
-
-        } else {
-            atorJogador.informaFaltaPontosMovimento();
-        }
-        System.out.println("Jogada Invalida");
-        return false;
-    }
-
-    public void verificarVencedor(Jogador jogador) {
-        if(jogador == jogadorA){
-            if(jogadorB.getPecasAtivas() <=0){
-                atorJogador.informaErro("Jogador "+jogadorB.getNome()+" não tem mais peças.", "Jogador Sem Peças");
-                atorJogador.informaErro("Jogador "+jogadorA.getNome()+" Vencedor. Parabéns.", "Vencedor!!!!.");
-            }
-        }
-        if(jogador == jogadorB){
-            if(jogadorA.getPecasAtivas() <=0){
-                atorJogador.informaErro("Jogador "+jogadorA.getNome()+" não tem mais peças.", "Jogador Sem Peças");
-                atorJogador.informaErro("Jogador "+jogadorB.getNome()+" Vencedor. Parabéns.", "Vencedor!!!!.");
-            }
-        }
-    }
-
-    public void preparaTeste() {
-        jogadorA = new Jogador("teste1");
-        jogadorB = new Jogador("teste2");
-        jogadorAtual = jogadorB;
-        jogadorTemp = jogadorB;
-        jogadorB.rolarDados();
-
-        //partidaEmAndamento = true;
-    }
-
     public Tabuleiro getTabuleiro() {
         return tabuleiro;
     }
 
     public Jogador getJogador1() {
-        return jogadorA;
+        return jogador1;
     }
 
     public Jogador getJogador2() {
-        return jogadorB;
+        return jogador2;
     }
 
     public void setJogador1(Jogador jogador1) {
-        this.jogadorA = jogador1;
+        this.jogador1 = jogador1;
     }
 
     public void setJogador2(Jogador jogador2) {
-        this.jogadorB = jogador2;
+        this.jogador2 = jogador2;
     }
 
     public Jogador getJogadorLocal() {
-        return jogadorTemp;
+        return jogador;
     }
 
     public void setJogadorLocal(Jogador jogadorLocal) {
-        this.jogadorTemp = jogadorLocal;
+        this.jogador = jogadorLocal;
     }
 
     public Jogador getJogadorDaVez() {
@@ -251,5 +71,214 @@ public class Partida {
 
     public void setConectado(boolean conectado) {
         this.conectado = conectado;
+    }
+    
+    public boolean isJogadorDaVez() {
+        return this.jogador == this.jogadorAtual;
+    }
+    
+    public Partida(AtorJogador atorJogador) {
+        this.atorJogador = atorJogador;
+        this.tabuleiro = new Tabuleiro();
+        
+        this.posicaoInicial = new int[2];
+        this.posicaoFinal = new int[2];
+    }
+    
+    public boolean iniciarPartida() {
+        this.jogador1.setId(1);
+        this.jogador2.setId(2);
+        this.tabuleiro.preparaTabuleiro(jogador1.getRobos(), jogador2.getRobos());
+        this.partidaEmAndamento = true;
+        
+        this.novoTurno();
+        
+        return true;
+    }
+    
+    public void novoTurno(){
+        // Rola os dados para que os robos ganhem pontos de movimento e atualiza a interface
+        this.rolarDados();
+        this.atorJogador.atualizarInterface();
+        
+        // Atualiza os dados do jogo e envia ao adversário
+        this.movimento = new Movimento(tabuleiro, jogador1, jogador2, jogadorAtual);
+        this.atorJogador.enviarJogada(this.movimento);
+    }
+
+    public void click(int x, int y) {
+        if (this.isJogadorDaVez()){
+            Posicao posicao = this.tabuleiro.recuperarPosicao(x, y);
+            if (posicao.estaOcupada() && posicao.informaRobo().getJogador() == this.jogadorAtual) {             
+                this.posicaoInicial[0] = x;
+                this.posicaoInicial[1] = y;    
+                clickRobo(posicao.informaRobo());
+
+            } else {
+                Robo robo = this.jogadorAtual.informaRoboSelecionado();
+                if (robo != null) {
+                    this.posicaoFinal[0] = x;
+                    this.posicaoFinal[1] = y;
+                    if (verificarJogada()){
+                        this.executarMovimento();
+                        this.verificarVencedor();
+                        this.verificarPassarTurno();
+                    }
+                    clickRobo(robo);
+                }
+            }
+        }
+    }
+
+    public void clickRobo(Robo robo) {
+        boolean selecionado = !robo.estaSelecionado();
+        robo.setarSelecionado(selecionado);
+        this.atorJogador.mudaEstadoSelecaoPeca(selecionado);
+    }
+    
+    public boolean verificarJogada() {
+        // Se não houver partida em andamento, informa que a partida já foi encerrada
+        if (!partidaEmAndamento) {
+            atorJogador.informaPartidaJahEncerrada();
+            return false;
+        }
+        
+        boolean movimentoValido = true;
+        
+        // Verificar se é apenas 1 tile de distancia
+        if (this.tabuleiro.calculaDistancia(this.posicaoInicial, this.posicaoFinal) != 1){
+            movimentoValido = false;
+            this.atorJogador.informaDistanciaInadequada();
+        }
+        
+        // Verifica se a peça possui pontos de movimento
+        if (this.tabuleiro.getRobo(this.posicaoInicial).getMovimento() == 0){
+            movimentoValido = false;
+            this.atorJogador.informaFaltaPontosMovimento();
+        }
+        
+        // Verificar se a posicao está vazia
+        if (this.tabuleiro.verificaPosicaoOcupada(this.posicaoFinal)){
+            
+            // Se não está vazia, verificar se o robo é do jogador atual
+            if (tabuleiro.getRobo(this.posicaoFinal).getJogador() == this.jogadorAtual){
+                movimentoValido = false;
+                this.atorJogador.informaPosicaoOcupada();
+            }
+            else{
+                
+                Robo roboFinal = this.tabuleiro.getRobo(this.posicaoFinal);
+                
+                // Se for do jogador adversário, verificar o robo está de costas para ser capturada
+                if (this.tabuleiro.getPosicao(this.posicaoInicial) == roboFinal.getPosicaoCostas()){
+                    Jogador adversario = this.tabuleiro.getRobo(this.posicaoFinal).getJogador();
+                    
+                    // Remove o robo do jogador e do tabuleiro
+                    adversario.removerPeca(roboFinal);
+                    this.tabuleiro.removeRobo(this.posicaoFinal);
+                }
+                else{
+                    movimentoValido = false;
+                    this.atorJogador.informaPosicaoOcupada();
+                }
+            }
+        }
+        
+        return movimentoValido;
+    }
+    
+    public void executarMovimento(){
+        // Seleciona o robo na posição inicial
+        Robo robo = this.tabuleiro.getRobo(this.posicaoInicial);
+        
+        // Estabelece a posição das costas do robo (posição anterior duh)
+        robo.setPosicaoCostas(this.tabuleiro.getPosicao(this.posicaoInicial));
+        
+        // Reduz a quantidade de movimentos
+        robo.diminuiMovimento();
+        
+        // Move o robo para a posição final
+        this.tabuleiro.moveRobo(robo, this.posicaoFinal);
+        
+        // Remove o robo da posição inicial do tabuleiro.
+        // Isto é devido à possível demora do garbage collector do Java
+        this.tabuleiro.removeRobo(this.posicaoInicial);
+        
+        // Calcula e atribui a direção da peça baseado no movimento
+        int direcao = this.tabuleiro.calcularDirecao(this.posicaoInicial, this.posicaoFinal);
+        robo.setDirecao(direcao);
+        
+        // Atualiza a interface do jogador e envia a jogada ao adversário
+        this.atorJogador.atualizarInterface();
+        this.atorJogador.enviarJogada(this.movimento);
+    }
+    
+    public void verificarVencedor() {
+        if (this.jogador1.getRobosAtivos() <= 0){
+            this.atorJogador.informaErro("Jogador " + this.jogador1.getNome() + " não tem mais peças.", "Jogador Sem Peças");
+            
+            if (this.jogador == this.jogador2){
+                this.atorJogador.informaErro("Parabéns!! Você Venceu!!", "Vencedor!!!!");
+            }
+            else{
+                this.atorJogador.informaErro("Você perdeu. Tente novamente.", "Perdedor");
+            }
+            
+            this.encerrarPartida();
+        }
+        else if (this.jogador2.getRobosAtivos() <= 0){
+            this.atorJogador.informaErro("Jogador " + this.jogador2.getNome() + " não tem mais peças.", "Jogador Sem Peças");
+            
+            if (this.jogador == this.jogador1){
+                this.atorJogador.informaErro("Parabéns!! Você Venceu!!", "Vencedor!!!!");
+            }
+            else{
+                this.atorJogador.informaErro("Você perdeu. Tente novamente.", "Perdedor");
+            }
+            
+            this.encerrarPartida();
+        }
+    }
+    
+    public void verificarPassarTurno(){
+        if (this.jogadorAtual.pecasAMovimentar() == 0){
+            this.atorJogador.enviarMensagem(new Mensagem(1, "passarTurno"));
+        }
+    }
+
+    public void passarTurno() {
+        if(this.jogadorAtual == this.jogador1){
+            this.jogadorAtual = this.jogador2;
+        }
+        else{
+            this.jogadorAtual = this.jogador1;
+        }
+        
+        if(this.jogadorAtual.getNome().equals(this.jogador.getNome())){
+            this.atualizaJogador();
+            this.novoTurno();
+        }
+    }
+    
+    public void atualizaJogador(){
+        this.jogador = this.jogadorAtual;
+    }
+
+    public void encerrarPartida() {
+        this.partidaEmAndamento = false;
+        this.atorJogador.encerrarPartida();
+    }
+
+    public void sortearInicio() {
+        throw new UnsupportedOperationException();
+    }
+
+    public void rolarDados() {
+        int[] resultado = jogadorAtual.rolarDados();
+        atorJogador.mostrarAnimacaoDado(resultado);
+    }
+    
+    public void desistir(){
+        
     }
 }

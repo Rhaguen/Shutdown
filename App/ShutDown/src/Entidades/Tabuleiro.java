@@ -3,56 +3,51 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Entidades;
+
 import br.ufsc.inf.leobr.cliente.Jogada;
+
 /**
  *
  * @author eduardo
  */
-public class Tabuleiro implements Jogada{
+public class Tabuleiro implements Jogada {
+
     private Posicao[][] posicoes;
 
     public Tabuleiro() {
-        posicoes = new Posicao[6][6];
+        this.posicoes = new Posicao[6][6];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                posicoes[i][j] = new Posicao();
+                this.posicoes[i][j] = new Posicao();
             }
         }
     }
 
-    public Robo getPeca(int[] pos) {
-        return posicoes[pos[1]][pos[0]].informaRobo();
-
+    public Robo getRobo(int[] pos) {
+        return this.posicoes[pos[1]][pos[0]].informaRobo();
     }
 
     public int calculaDistancia(int[] posInicial, int[] posFinal) {
         int distanciaX = posInicial[0] - posFinal[0];
         int distanciaY = posInicial[1] - posFinal[1];
         return Math.abs(distanciaX + distanciaY);
-
-
     }
 
     public boolean verificaPosicaoOcupada(int[] pos) {
-        return posicoes[pos[1]][pos[0]].estaOcupada();
+        return this.posicoes[pos[1]][pos[0]].estaOcupada();
     }
 
-    public Robo getPeca(int pos) {
-        throw new UnsupportedOperationException();
+    public void removeRobo(int[] pos) {
+        this.posicoes[pos[1]][ pos[0]].removeRobo();
     }
 
-    public void removePeca(int[] pos) {
-        posicoes[pos[1]][ pos[0]].removeRobo();
-    }
-
-    public void movePeca(Robo peca, int[] pos) {
-        posicoes[pos[1]][ pos[0]].atribuiRobo(peca);
+    public void moveRobo(Robo peca, int[] pos) {
+        this.posicoes[pos[1]][ pos[0]].atribuiRobo(peca);
     }
 
     public Posicao recuperarPosicao(int x, int y) {
-        return posicoes[y][x];
+        return this.posicoes[y][x];
     }
 
     public Posicao getPosicao(int[] pos) {
@@ -60,15 +55,15 @@ public class Tabuleiro implements Jogada{
     }
 
     public void preparaTabuleiro(Robo[] pcJog1, Robo[] pcJog2) {
-        posicoes[0][2].atribuiRobo(pcJog1[0]);
-        posicoes[0][3].atribuiRobo(pcJog1[1]);
-        posicoes[5][2].atribuiRobo(pcJog2[0]);
-        posicoes[5][3].atribuiRobo(pcJog2[1]);
+        this.posicoes[0][2].atribuiRobo(pcJog1[0]);
+        this.posicoes[0][3].atribuiRobo(pcJog1[1]);
+        this.posicoes[5][2].atribuiRobo(pcJog2[0]);
+        this.posicoes[5][3].atribuiRobo(pcJog2[1]);
         pcJog1[0].setDirecao(2);
         pcJog1[1].setDirecao(2);
     }
 
-    int calcularDirecao(int[] posInicial, int[] posFinal) {
+    public int calcularDirecao(int[] posInicial, int[] posFinal) {
         int distanciaX = posInicial[0] - posFinal[0];
         int distanciaY = posInicial[1] - posFinal[1];
 
@@ -77,9 +72,9 @@ public class Tabuleiro implements Jogada{
         } else if (distanciaX < 0) {
             return 1; // direita
         }
-        if(distanciaY > 0){
+        if (distanciaY > 0) {
             return 0; // cima
-        } else if (distanciaY < 0){
+        } else if (distanciaY < 0) {
             return 2; // baixo
         }
         return -1;

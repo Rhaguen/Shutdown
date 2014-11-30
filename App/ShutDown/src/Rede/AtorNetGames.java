@@ -3,115 +3,148 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Rede;
-import javax.swing.JOptionPane;
+
 import Interface.AtorJogador;
 import Entidades.Movimento;
+import Entidades.Mensagem;
 import br.ufsc.inf.leobr.cliente.*;
 import br.ufsc.inf.leobr.cliente.exception.*;
+
 /**
  *
  * @author eduardo
  */
-public class AtorNetGames implements OuvidorProxy{
+public class AtorNetGames implements OuvidorProxy {
+
     protected AtorJogador atorJogador;
-	protected Proxy proxy;
-	
-	public AtorNetGames (AtorJogador atorJogador){
-		super();
-		this.atorJogador = atorJogador;
-		this.proxy = Proxy.getInstance();
-		proxy.addOuvinte(this);	
-	}
+    protected Proxy proxy;
+    private boolean conectado;
 
-	public boolean conectar(String servidor, String nome) {
-		try {
-			proxy.conectar(servidor, nome);
-			return true;
-		} catch (JahConectadoException e) {
-			atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
-			e.printStackTrace();
-			return false;
-		} catch (NaoPossivelConectarException e) {
-			atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
-			e.printStackTrace();
-			return false;
-		} catch (ArquivoMultiplayerException e) {
-			atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
-			e.printStackTrace();
-			return false;
-		}
-	}
+    /**
+     * @return the conectado
+     */
+    public boolean isConectado() {
+        return conectado;
+    }
 
-	public boolean desconectar() {
-		try {
-			proxy.desconectar();
-			return true;
-		} catch (NaoConectadoException e) {
-			atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
-			e.printStackTrace();
-			return false;
-		}
-	}
+    /**
+     * @param conectado the conectado to set
+     */
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
+    }
 
-	public void iniciarPartida() {
-		try {
-			proxy.iniciarPartida(new Integer(2));
-                        System.out.println("Chamou Iniciar Partida");
-		} catch (NaoConectadoException e) {
-			atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
-			e.printStackTrace();
-		}
-	}
+    public AtorNetGames(AtorJogador atorJogador) {
+        super();
+        this.atorJogador = atorJogador;
+        this.conectado = false;
+        this.proxy = Proxy.getInstance();
+        this.proxy.addOuvinte(this);
+    }
 
-	public void enviarJogada(Movimento movimento) {
-		try {
-			proxy.enviaJogada(movimento);
-		} catch (NaoJogandoException e) {
-			atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
-			e.printStackTrace();
-		}
-	}
+    public boolean conectar(String servidor, String nome){
+        try {
+            this.proxy.conectar(servidor, nome);
+            this.conectado = true;
+            return true;
+        } catch (NaoPossivelConectarException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+            return false;
+        } catch (ArquivoMultiplayerException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+            return false;
+        } catch (JahConectadoException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-	public String informarNomeAdversario(String idUsuario) {
-		String aux1 = proxy.obterNomeAdversario(new Integer(1));
-		String aux2 = proxy.obterNomeAdversario(new Integer(2));;
-		if (aux1.equals(idUsuario)){
-			return aux2;
-		} else {
-			return aux1;
-		}		
-}
+    public boolean desconectar() {
+        try {
+            this.proxy.desconectar();
+            this.conectado = false;
+            return true;
+        } catch (NaoConectadoException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-	public void receberJogada(Jogada jogada) {
-		Movimento movimento = (Movimento) jogada;
-		atorJogador.receberJogada(movimento);
-	}
+    public void iniciarPartida() {
+        try {
+            this.proxy.iniciarPartida(new Integer(2));
+        } catch (NaoConectadoException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+        }
+    }
 
-	public void finalizarPartidaComErro(String message) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void enviarJogada(Movimento movimento) {
+        try {
+            this.proxy.enviaJogada(movimento);
+        } catch (NaoJogandoException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+        }
+    }
 
-	public void receberMensagem(String msg) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void enviarJogada(Mensagem mensagem) {
+        try {
+            this.proxy.enviaJogada(mensagem);
+        } catch (NaoJogandoException e) {
+            this.atorJogador.informaErro(e.getMessage(), "Erro de Conexão");
+            e.printStackTrace();
+        }
+    }
 
-	public void tratarConexaoPerdida() {
-		// TODO Auto-generated method stub
-		
-	}
+    public String informarNomeAdversario(String idUsuario) {
+        String aux1 = this.proxy.obterNomeAdversario(new Integer(1));
+        String aux2 = this.proxy.obterNomeAdversario(new Integer(2));
+        if (aux1.equals(idUsuario)) {
+            return aux2;
+        } else {
+            return aux1;
+        }
+    }
 
-	public void tratarPartidaNaoIniciada(String message) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void receberJogada(Jogada jogada) {
+        if (jogada instanceof Movimento) {
+            Movimento movimento = (Movimento) jogada;
+            this.atorJogador.receberJogada(movimento);
+        } else if (jogada instanceof Mensagem) {
+            Mensagem mensagem = (Mensagem) jogada;
+            this.atorJogador.receberMensagem(mensagem);
+        }
+    }
 
-	public void iniciarNovaPartida(Integer posicao) {
-            System.out.println("Recebeu solicitação de inicio "+posicao);
-            atorJogador.iniciarPartida(posicao);
-                
-	}
+    @Override
+    public void finalizarPartidaComErro(String message) {
+        this.desconectar();
+    }
+
+    @Override
+    public void receberMensagem(String msg) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void tratarConexaoPerdida() {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void tratarPartidaNaoIniciada(String message) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void iniciarNovaPartida(Integer posicao) {
+        atorJogador.iniciarPartida(posicao);
+    }
 }
