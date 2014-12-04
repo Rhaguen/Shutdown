@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author eduardo
+ * @author fernando
  */
 public class AtorJogador {
 

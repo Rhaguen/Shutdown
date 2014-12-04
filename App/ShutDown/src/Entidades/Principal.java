@@ -9,7 +9,7 @@ import Interface.AtorJogador;
 
 /**
  *
- * @author eduardo
+ * @author fernando
  */
 public class Principal {
 

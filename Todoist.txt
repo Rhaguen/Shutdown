@@ -1,0 +1,23 @@
+MOdificar imagens no jogo - NOT OK
+
+Especificacoes de Requisitos - Revisar
+
+Releases Notes - NOT OK
+
+Diagrama de classes: NOT OK
+
+IntetfaceGrafica / TelaPrincipal - OK
+Rede / Movimento - NOT OK
+Rede / AtorNetGames - NOT OK
+
+Diagrama de Casos de Uso - NOT OK
+
+Diagramas de Atividades: NOT OK
+
+Diagramas de Metodos: NOT OK
+
+Diagramas de Sequencia: NOT OK
+
+Diagramas de Maquinas de Estado: Revisar
+
+.JAR - Criar um novo apos todos OK

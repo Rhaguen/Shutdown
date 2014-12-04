@@ -13,7 +13,7 @@ import br.ufsc.inf.leobr.cliente.exception.*;
 
 /**
  *
- * @author eduardo
+ * @author fernando
  */
 public class AtorNetGames implements OuvidorProxy {
 

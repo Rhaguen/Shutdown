@@ -8,7 +8,7 @@ package Entidades;
 import br.ufsc.inf.leobr.cliente.Jogada;
 /**
  *
- * @author eduardo
+ * @author fernando
  */
 public class Robo implements Jogada{
 
