@@ -88,7 +88,9 @@ public class Partida {
     public boolean iniciarPartida() {
         this.jogador1.setId(1);
         this.jogador2.setId(2);
-        this.tabuleiro.preparaTabuleiro(jogador1.getRobos(), jogador2.getRobos());
+        Robo[] robos1 = this.jogador1.getRobos();
+        Robo[] robos2 = this.jogador2.getRobos();
+        this.tabuleiro.preparaTabuleiro(robos1, robos2);
         this.partidaEmAndamento = true;
         
         this.novoTurno();
@@ -107,12 +109,16 @@ public class Partida {
     }
 
     public void click(int x, int y) {
-        if (this.isJogadorDaVez()){
+        boolean daVez = this.isJogadorDaVez();
+        if (daVez){
             Posicao posicao = this.tabuleiro.recuperarPosicao(x, y);
-            if (posicao.estaOcupada() && posicao.informaRobo().getJogador() == this.jogadorAtual) {             
+            boolean ocupada = posicao.estaOcupada();
+            Robo atual = posicao.informaRobo();
+            Jogador jogador = atual.getJogador();
+            if (ocupada && jogador == this.jogadorAtual) {             
                 this.posicaoInicial[0] = x;
-                this.posicaoInicial[1] = y;    
-                clickRobo(posicao.informaRobo());
+                this.posicaoInicial[1] = y;
+                clickRobo(atual);
 
             } else {
                 Robo robo = this.jogadorAtual.informaRoboSelecionado();
@@ -146,22 +152,28 @@ public class Partida {
         boolean movimentoValido = true;
         
         // Verificar se é apenas 1 tile de distancia
-        if (this.tabuleiro.calculaDistancia(this.posicaoInicial, this.posicaoFinal) != 1){
+        int dist = this.tabuleiro.calculaDistancia(this.posicaoInicial, this.posicaoFinal);
+        if (dist != 1){
             movimentoValido = false;
             this.atorJogador.informaDistanciaInadequada();
         }
         
         // Verifica se a peça possui pontos de movimento
-        if (this.tabuleiro.getRobo(this.posicaoInicial).getMovimento() == 0){
+        Robo atual = this.tabuleiro.getRobo(this.posicaoInicial);
+        int movimentos = atual.getMovimento();
+        if (movimentos == 0){
             movimentoValido = false;
             this.atorJogador.informaFaltaPontosMovimento();
         }
         
         // Verificar se a posicao está vazia
-        if (this.tabuleiro.verificaPosicaoOcupada(this.posicaoFinal)){
+        boolean ocupada = this.tabuleiro.verificaPosicaoOcupada(this.posicaoFinal);
+        if (ocupada){
             
             // Se não está vazia, verificar se o robo é do jogador atual
-            if (tabuleiro.getRobo(this.posicaoFinal).getJogador() == this.jogadorAtual){
+            Robo rFinal = tabuleiro.getRobo(this.posicaoFinal);
+            Jogador jogador = rFinal.getJogador();
+            if (jogador == this.jogadorAtual){
                 movimentoValido = false;
                 this.atorJogador.informaPosicaoOcupada();
             }
@@ -170,8 +182,11 @@ public class Partida {
                 Robo roboFinal = this.tabuleiro.getRobo(this.posicaoFinal);
                 
                 // Se for do jogador adversário, verificar o robo está de costas para ser capturada
-                if (this.tabuleiro.getPosicao(this.posicaoInicial) == roboFinal.getPosicaoCostas()){
-                    Jogador adversario = this.tabuleiro.getRobo(this.posicaoFinal).getJogador();
+                Posicao posAtual = this.tabuleiro.getPosicao(this.posicaoInicial);
+                Posicao posCostas = roboFinal.getPosicaoCostas();
+                if (posAtual == posCostas){
+                    
+                    Jogador adversario = roboFinal.getJogador();
                     
                     // Remove o robo do jogador e do tabuleiro
                     adversario.removerPeca(roboFinal);
