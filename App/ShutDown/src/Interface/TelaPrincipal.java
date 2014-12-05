@@ -857,7 +857,7 @@ private void itemMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 }//GEN-LAST:event_itemMenuSairActionPerformed
 
 private void itemMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuIniciarActionPerformed
-    this.atorJogador.iniciarPartida();
+    this.atorJogador.iniciar();
 }//GEN-LAST:event_itemMenuIniciarActionPerformed
 
     private void itemMenuDesistirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuDesistirActionPerformed

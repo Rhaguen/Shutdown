@@ -1,10 +1,10 @@
 MOdificar imagens no jogo - NOT OK
 
-Especificacoes de Requisitos - Revisar
+Especificacoes de Requisitos - REVISAR
 
 Releases Notes - NOT OK
 
-Diagrama de classes: NOT OK
+Diagrama de classes: PASSANDO A LIMPO (Kamahl)
 
 IntetfaceGrafica / TelaPrincipal - OK
 Rede / Movimento - NOT OK
@@ -16,8 +16,8 @@ Diagramas de Atividades: NOT OK
 
 Diagramas de Metodos: NOT OK
 
-Diagramas de Sequencia: NOT OK
+Diagramas de Sequencia: ARRUMAR
 
-Diagramas de Maquinas de Estado: Revisar
+Diagramas de Maquinas de Estado: REVISAR
 
 .JAR - Criar um novo apos todos OK

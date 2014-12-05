@@ -28,7 +28,7 @@ public class AtorJogador {
         this.telaPrincipal.setVisible(true);
     }
     
-    public void iniciarPartida(){
+    public void iniciar(){
         // Conecta ao servidor de jogos
         this.conectar();
         
@@ -176,7 +176,7 @@ public class AtorJogador {
         this.atualizarInterface();
         
         // Verifica se houve vencedor
-        this.partida.verificarVencedor();
+        this.partida.tratarVencedor();
     }
 
     public void receberMensagem(Mensagem mensagem) {
@@ -205,10 +205,10 @@ public class AtorJogador {
             telaPrincipal.informaErro("Você Desistiu. Seu Kitter!!.", "Kitter!!");
         }
         
-        this.encerrarPartida();
+        this.finalizarPartida();
     }
     
-    public void encerrarPartida() {
+    public void finalizarPartida() {
         // Desconecta do servidor de jogo
         this.netGames.desconectar();
         

@@ -119,9 +119,9 @@ public class Partida {
                 if (robo != null) {
                     this.posicaoFinal[0] = x;
                     this.posicaoFinal[1] = y;
-                    if (verificarJogada()){
+                    if (tratarJogada()){
                         this.executarMovimento();
-                        this.verificarVencedor();
+                        this.tratarVencedor();
                         this.verificarPassarTurno();
                     }
                     clickRobo(robo);
@@ -136,7 +136,7 @@ public class Partida {
         this.atorJogador.mudaEstadoSelecaoPeca(selecionado);
     }
     
-    public boolean verificarJogada() {
+    public boolean tratarJogada() {
         // Se não houver partida em andamento, informa que a partida já foi encerrada
         if (!partidaEmAndamento) {
             atorJogador.informaPartidaJahEncerrada();
@@ -213,7 +213,7 @@ public class Partida {
         this.atorJogador.enviarJogada(this.movimento);
     }
     
-    public void verificarVencedor() {
+    public void tratarVencedor() {
         if (this.jogador1.getRobosAtivos() <= 0){
             this.atorJogador.informaErro("Jogador " + this.jogador1.getNome() + " não tem mais peças.", "Jogador Sem Peças");
             
@@ -266,7 +266,7 @@ public class Partida {
 
     public void encerrarPartida() {
         this.partidaEmAndamento = false;
-        this.atorJogador.encerrarPartida();
+        this.atorJogador.finalizarPartida();
     }
 
     public void sortearInicio() {
@@ -277,8 +277,5 @@ public class Partida {
         int[] resultado = jogadorAtual.rolarDados();
         atorJogador.mostrarAnimacaoDado(resultado);
     }
-    
-    public void desistir(){
-        
-    }
+ 
 }
