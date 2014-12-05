@@ -107,16 +107,12 @@ public class Partida {
     }
 
     public void click(int x, int y) {
-        boolean daVez = this.isJogadorDaVez();
-        if (daVez){
+        if (this.isJogadorDaVez()){
             Posicao posicao = this.tabuleiro.recuperarPosicao(x, y);
-            boolean ocupada = posicao.estaOcupada();
-            Robo atual = posicao.informaRobo();
-            Jogador jogador = atual.getJogador();
-            if (ocupada && jogador == this.jogadorAtual) {             
+            if (posicao.estaOcupada() && posicao.informaRobo().getJogador() == this.jogadorAtual) {             
                 this.posicaoInicial[0] = x;
                 this.posicaoInicial[1] = y;    
-                clickRobo(atual);
+                clickRobo(posicao.informaRobo());
 
             } else {
                 Robo robo = this.jogadorAtual.informaRoboSelecionado();
