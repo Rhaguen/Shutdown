@@ -1,4 +1,4 @@
-MOdificar imagens no jogo - NOT OK
+MOdificar imagens no jogo - OK
 
 Especificacoes de Requisitos - REVISAR
 
@@ -16,8 +16,9 @@ Diagramas de Atividades: NOT OK
 
 Diagramas de Metodos: NOT OK
 
-Diagramas de Sequencia: ARRUMAR
+Diagramas de Sequencia: PASSANDO a LIMPO (Eduardo)
 
 Diagramas de Maquinas de Estado: REVISAR
+
 
 .JAR - Criar um novo apos todos OK
