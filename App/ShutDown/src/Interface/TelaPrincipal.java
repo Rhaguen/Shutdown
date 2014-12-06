@@ -969,14 +969,14 @@ private void itemMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//G
         dado = new javax.swing.ImageIcon(getClass().getResource("/Resources/dados.gif"));
         seta1 = new Icon[4];
         seta2 = new Icon[4];
-        seta1[0] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_cima.png"));
-        seta1[1] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_dir.png"));
-        seta1[2] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_baix.png"));
-        seta1[3] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta1_esq.png"));
-        seta2[0] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_cima.png"));
-        seta2[1] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_dir.png"));
-        seta2[2] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_baix.png"));
-        seta2[3] = new javax.swing.ImageIcon(getClass().getResource("/Resources/seta2_esq.png"));
+        seta1[0] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo1_cima.gif"));
+        seta1[1] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo1_dir.gif"));
+        seta1[2] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo1_baixo.gif"));
+        seta1[3] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo1_esq.gif"));
+        seta2[0] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo2_cima.gif"));
+        seta2[1] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo2_dir.gif"));
+        seta2[2] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo2_baixo.gif"));
+        seta2[3] = new javax.swing.ImageIcon(getClass().getResource("/Resources/robo2_esq.gif"));
     }
 
     public String solicitaDados(String mensagem) {
