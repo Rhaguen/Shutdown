@@ -48,6 +48,10 @@ public class Partida {
     public Jogador getJogadorLocal() {
         return jogador;
     }
+    
+    public void iniciarPartidaLocal(String nomeJogador){
+        setJogadorLocal(new Jogador(nomeJogador));
+    }
 
     public void setJogadorLocal(Jogador jogadorLocal) {
         this.jogador = jogadorLocal;
@@ -107,19 +111,23 @@ public class Partida {
     }
 
     public void click(int x, int y) {
-        if (this.isJogadorDaVez()){
+        boolean daVez = this.isJogadorDaVez();
+        if (daVez){
             Posicao posicao = this.tabuleiro.recuperarPosicao(x, y);
-            if (posicao.estaOcupada() && posicao.informaRobo().getJogador() == this.jogadorAtual) {             
+            boolean ocupada = posicao.estaOcupada();
+            Robo roboDaVez = posicao.informaRobo();
+            if (ocupada && roboDaVez.getJogador() == this.jogadorAtual) {             
                 this.posicaoInicial[0] = x;
                 this.posicaoInicial[1] = y;    
-                clickRobo(posicao.informaRobo());
+                clickRobo(roboDaVez);
 
             } else {
                 Robo robo = this.jogadorAtual.informaRoboSelecionado();
                 if (robo != null) {
                     this.posicaoFinal[0] = x;
                     this.posicaoFinal[1] = y;
-                    if (tratarJogada()){
+                    boolean valida = tratarJogada();
+                    if (valida){
                         this.executarMovimento();
                         this.tratarVencedor();
                         this.verificarPassarTurno();

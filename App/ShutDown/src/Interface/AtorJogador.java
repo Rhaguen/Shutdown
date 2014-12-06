@@ -46,9 +46,9 @@ public class AtorJogador {
             if (servidor.equals("")) {
                 servidor = "venus.inf.ufsc.br";
             }
-            
-            if (netGames.conectar(servidor, nomeJogador)){ 
-                this.partida.setJogadorLocal(new Jogador(nomeJogador));
+            boolean sucesso = netGames.conectar(servidor, nomeJogador);
+            if (sucesso){ 
+                this.partida.iniciarPartidaLocal(nomeJogador);
             }
             else{
                 telaPrincipal.informaErro("Não foi possivel conectar no servidor: " + servidor, "Erro de conexão");
