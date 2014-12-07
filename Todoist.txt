@@ -1,20 +1,20 @@
-MOdificar imagens no jogo - OK
+MOdificar imagens no jogo ---------------- OK
 
-Especificacoes de Requisitos - Kamahl
+Especificacoes de Requisitos ------------- OK
 
-Releases Notes - Kamahl
+Releases Notes --------------------------- Kamahl
 
-Diagrama de classes: Kamahl
+Diagrama de classes: --------------------- OK
 
-Diagrama de Casos de Uso - OK
+Diagrama de Casos de Uso ----------------- OK
 
-Diagramas de Atividades: Raoni
+Diagramas de Atividades: ----------------- Raoni
 
-Diagramas de Metodos: Kamahl
+Diagramas de Metodos: -------------------- Kamahl
 
-Diagramas de Sequencia: Eduardo
+Diagramas de Sequencia: ------------------ Eduardo
 
-Diagramas de Maquinas de Estado: Kamahl
+Diagramas de Maquinas de Estado: --------- Kamahl
 
 
 .JAR - Criar um novo apos todos OK
