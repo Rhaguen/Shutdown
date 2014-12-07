@@ -13,11 +13,11 @@ import br.ufsc.inf.leobr.cliente.Jogada;
  */
 public class Posicao implements Jogada {
 
-    private Robo peca;
+    private Robo robo;
     private boolean ocupada;
 
     public Robo informaRobo() {
-        return this.peca;
+        return this.robo;
     }
 
     public boolean estaOcupada() {
@@ -25,12 +25,12 @@ public class Posicao implements Jogada {
     }
 
     public void removeRobo() {
-        peca = null;
+        robo = null;
         ocupada = false;
     }
 
     public void atribuiRobo(Robo peca) {
-        this.peca = peca;
+        this.robo = peca;
         ocupada = true;
     }
 }

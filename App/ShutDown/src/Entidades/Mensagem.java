@@ -48,4 +48,5 @@ public class Mensagem implements Jogada {
         this.tipoMensagem = tipoMensagem;
         this.mensagem = mensagem;
     }
+
 }

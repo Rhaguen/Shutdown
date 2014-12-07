@@ -13,17 +13,17 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Robo implements Jogada{
 
     private int direcao;
-    private boolean ativa;
+    private boolean ativo;
     private Jogador jogador;
     private boolean movimentou;
-    private boolean selecionada;
+    private boolean selecionado;
     private int movimento;
     private Posicao posicaoCostas;
 
     public Robo(Jogador jogador) {
         this.jogador = jogador;
-        selecionada = false;
-        ativa = true;
+        selecionado = false;
+        ativo = true;
     }
 
     public boolean isMovimentou() {
@@ -65,11 +65,11 @@ public class Robo implements Jogada{
     }
 
     public boolean estaSelecionado() {
-        return selecionada;
+        return selecionado;
     }
 
     public void setarSelecionado(boolean selecionada) {
-        this.selecionada = selecionada;
+        this.selecionado = selecionada;
     }
     
     public void setPosicaoCostas(Posicao posicao) {
@@ -84,10 +84,10 @@ public class Robo implements Jogada{
     }
 
     public boolean isAtiva() {
-        return ativa;
+        return ativo;
     }
 
     public void setAtiva(boolean ativa) {
-        this.ativa = ativa;
+        this.ativo = ativa;
     }
 }
