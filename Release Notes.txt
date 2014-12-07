@@ -1,0 +1,64 @@
+===========================================================
+Autores:  	Eduardo Rosa
+		Fernando Mateus
+		Raoni Moreira da Silva
+
+
+Shutdown, VERSÃO 1.0 -- RELEASE NOTES. 
+
+===========================================================
+
+O objetivo por trás do jogo é vencer o adversário desativando seus dois robôs.
+
+-----------------------------------------------------------
+
+REQUISITOS
+
+          *Maquina Virtual Java (JVM) Instalada no computador
+
+INSTALAÇÃO
+	
+	Basta descompactar a pasta do jogo. Para jogar deve clicar no executável 
+	Shutdown.jar. Mais detalhes a seguir.
+
+
+COMO JOGAR
+
+	  Para jogar uma partida on-line (duas maquinas diferentes):
+
+            1 - Conecte-se à Internet
+            2 - Executar o arquivo "Shutdown.jar"
+	    3 - Clique na opção de menu "Jogo" > "Iniciar"
+            4 - Insira seu nome
+            5 - Digitar o servidor ou deixar em branco para usar o padrão (venus.inf.ufsc.br) 
+            6 - Aguardar um adversário fazer o mesmo procedimento
+            7 - Bom jogo!
+
+
+DETALHES
+
+	1-Inicio: 
+	O jogador a se conectar por ultimo na partida, terá seus robôs colocados na 
+	parte de cima da tela e procedera os primeiros movimentos.
+
+	2-Movimentação:
+	Cada robô recebe de um a seis movimentos para realizar em um turno. Destes cada um deve ser realizado 
+	um por vez e todos devem ser realizados antes que seja feita a troca de turnos. Robôs somente podem ser movidos 
+	para blocos livres ou então para blocos ocupados por robôs adversários, desde que pela parte de traz (procedimento de Shutdown).
+
+	3-Vitoria:
+	A cada robô desativado pelo jogador, o jogo automaticamente verifica se o adversário ainda possui robôs no tabuleiro. 
+	Caso não possua, o jogo termina e este jogador que realizou o ultimo movimento é declarado o vencedor.
+	
+
+ASPECTOS POSITIVOS DO JOGO SHUTDOWN VERSÃO 1.0:
+
+	1- Jogo roda sem problemas, com rapidez e clareza.
+	2- Jogo tem uma interface gráfica amigável.
+	3- Jogabilidade simples de aprender.
+
+ASPECTOS NEGATIVOS DO JOGO SHUTDOWN VERSÃO 1.0 (Possíveis melhoras para próximas versões):
+	
+	1- O jogo é para apenas duas pessoas, para as próximas versões poderia ser para até seis Jogadores.
+	2- Interface gráfica pode ser mais bem trabalhada.
+	3- Jogo não apresenta persistência de dados, para guardar o numero de partidas ganhas/perdidas.

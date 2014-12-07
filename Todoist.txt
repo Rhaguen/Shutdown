@@ -2,7 +2,7 @@ MOdificar imagens no jogo ---------------- OK
 
 Especificacoes de Requisitos ------------- OK
 
-Releases Notes --------------------------- Kamahl
+Releases Notes --------------------------- OK
 
 Diagrama de classes: --------------------- OK
 
