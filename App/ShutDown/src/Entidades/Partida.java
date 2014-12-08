@@ -144,6 +144,7 @@ public class Partida {
         this.atorJogador.mudaEstadoSelecaoPeca(selecionado);
     }
     
+
     public boolean tratarJogada() {
         // Se não houver partida em andamento, informa que a partida já foi encerrada
         if (!partidaEmAndamento) {
