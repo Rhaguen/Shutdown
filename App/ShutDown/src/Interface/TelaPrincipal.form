@@ -25,11 +25,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemMenuDesistirActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="itemMenuInfo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemMenuSair">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sair"/>

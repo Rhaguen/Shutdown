@@ -103,7 +103,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuJogo = new javax.swing.JMenu();
         itemMenuIniciar = new javax.swing.JMenuItem();
         itemMenuDesistir = new javax.swing.JMenuItem();
-        itemMenuInfo = new javax.swing.JMenuItem();
         itemMenuSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -613,9 +612,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuJogo.add(itemMenuDesistir);
 
-        itemMenuInfo.setText("Informações");
-        menuJogo.add(itemMenuInfo);
-
         itemMenuSair.setText("Sair");
         itemMenuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -868,7 +864,6 @@ private void itemMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//G
     private javax.swing.JPanel areaTabuleiro;
     private javax.swing.JPanel inicio;
     private javax.swing.JMenuItem itemMenuDesistir;
-    private javax.swing.JMenuItem itemMenuInfo;
     private javax.swing.JMenuItem itemMenuIniciar;
     private javax.swing.JMenuItem itemMenuSair;
     private javax.swing.JLabel jLabel5;
