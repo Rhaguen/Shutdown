@@ -28,8 +28,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal(AtorJogador atorJogador) {
+        
+        //tira borda do Frame
+        //this.setUndecorated(true);  
+        
         this.atorJogador = atorJogador;
-
         this.corFundo = new java.awt.Color(255, 102, 51);
         this.corSelecao = new java.awt.Color(255, 188, 51);
         initComponents();
@@ -1005,11 +1008,6 @@ private void itemMenuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//G
             this.pontosMovimentoJog2_2.setText("0");
         }
     }
-
-    /*public void conectado(boolean conectado) {
-        this.visivelIniciar(!conectado);
-        this.visivelDesistir(conectado);
-    }*/
 
     public void habilitarIniciar(boolean habilitar) {
         this.itemMenuIniciar.setEnabled(habilitar);

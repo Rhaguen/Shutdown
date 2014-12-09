@@ -1,21 +1,13 @@
 notas sobre os diagramas
 
 
-conectar:
-não achei verificação de consistência de nome no código
-precisa ter um nodo "join" no antes do final?
-não consegui colocar estereótipos (iniciar)
-
 executar movimento:
 
-finalizar partida:
-arrumar finalizar partida
 
 click:
-diagrama de sequência mostra nova interface (atorJogador) sendo instanciada a cada click?
+diagrama de sequência mostra nova 
+interface (atorJogador) sendo instanciada a cada click?
 
-tratar jogada:
-empacado
 
 tratar vencedor:
 
@@ -24,12 +16,6 @@ incompleto?
 tratar vencedor?
 
 iniciar:
-
-desistir:
-relacionar com o caso de uso finalizar partida?
-guardas de adversarioDesistiu
-
-
 
 
 
