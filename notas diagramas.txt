@@ -1,15 +1,15 @@
 notas sobre os diagramas
 
 
-conectar..........................ok
+conectar..........................OK
 executar movimento................
-finalizar partida.................
-receber jogada....................ok
+finalizar partida.................OK (conferir)
+receber jogada....................OK
 iniciar...........................
 click.............................
-tratar jogada.....................ok (e está lindo)
-tratar vitoria....................
-desistir..........................ok
+tratar jogada.....................OK (e está lindo)
+tratar vencedor...................OK
+desistir..........................OK
 
 
 Tratar vencedor:
