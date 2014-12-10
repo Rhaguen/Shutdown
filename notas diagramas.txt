@@ -1,21 +1,21 @@
 notas sobre os diagramas
 
 
-executar movimento:
+conectar..........................ok
+executar movimento................
+finalizar partida.................
+receber jogada....................ok
+iniciar...........................
+click.............................
+tratar jogada.....................ok (e está lindo)
+tratar vitoria....................
+desistir..........................ok
 
 
-click:
-diagrama de sequência mostra nova 
-interface (atorJogador) sendo instanciada a cada click?
-
-
-tratar vencedor:
-
-receber jogada:
-incompleto?
-tratar vencedor?
-
-iniciar:
+Tratar vencedor:
+Parece haver um problema de modelagem no diagrama de sequência (mas talvez eu esteja entendendo errado):
+O que acontece no caso de o método ser chamado e não haver nenhum jogador vencedor?
+Talvez substituir o alt maior por dois opts?
 
 
 
