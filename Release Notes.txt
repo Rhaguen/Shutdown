@@ -54,7 +54,7 @@ DETALHES
 ASPECTOS POSITIVOS DO JOGO SHUTDOWN VERSÃO 1.0:
 
 	1- Jogo roda sem problemas, com rapidez e clareza.
-	2- Jogo tem uma interface gráfica amigável.
+	2- Jogo consome poucos recursos da CPU.
 	3- Jogabilidade simples de aprender.
 
 ASPECTOS NEGATIVOS DO JOGO SHUTDOWN VERSÃO 1.0 (Possíveis melhoras para próximas versões):

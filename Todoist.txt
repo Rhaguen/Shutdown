@@ -10,9 +10,34 @@ Diagrama de Casos de Uso ----------------- OK
 
 Diagramas de Atividades: ----------------- Raoni
 
+conectar..........................OK
+executar movimento................OK
+finalizar partida.................OK
+receber jogada....................OK
+iniciarPartida....................
+click.............................
+tratar jogada.....................OK
+tratar vencedor...................OK
+desistir..........................OK
+
+verificar se todos os diagramas que 
+referenciam casos de uso estão relacionados
+
+
+Tratar vencedor:
+Parece haver um problema de modelagem 
+no diagrama de sequência (mas talvez 
+eu esteja entendendo errado):
+O que acontece no caso de o método 
+ser chamado e não haver nenhum jogador vencedor?
+Talvez substituir o alt maior por dois opts?
+
+Executar movimento:
+
+
 Diagramas de Metodos: -------------------- Kamahl
 
-Diagramas de Sequencia: ------------------ Eduardo
+Diagramas de Sequencia: ------------------ ok?
 
 Diagramas de Maquinas de Estado: --------- Kamahl
 

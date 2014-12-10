@@ -28,7 +28,7 @@ public class AtorJogador {
         this.telaPrincipal.setVisible(true);
     }
     
-    public void iniciar(){
+    public void iniciarPartida(){
         // Conecta ao servidor de jogos
         this.conectar();
         
