@@ -2,14 +2,17 @@ notas sobre os diagramas
 
 
 conectar..........................OK
-executar movimento................
+executar movimento................OK (conferir)
 finalizar partida.................OK (conferir)
 receber jogada....................OK
 iniciar...........................
 click.............................
 tratar jogada.....................OK (e está lindo)
-tratar vencedor...................OK
+tratar vencedor...................OK (conferir)
 desistir..........................OK
+
+verificar se todos os diagramas que referenciam casos de uso estão relacionados
+
 
 
 Tratar vencedor:
@@ -17,6 +20,7 @@ Parece haver um problema de modelagem no diagrama de sequência (mas talvez eu es
 O que acontece no caso de o método ser chamado e não haver nenhum jogador vencedor?
 Talvez substituir o alt maior por dois opts?
 
+Executar movimento:
 
 
 
