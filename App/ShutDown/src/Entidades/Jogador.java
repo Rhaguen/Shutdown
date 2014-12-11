@@ -90,7 +90,7 @@ public class Jogador implements Jogada{
     
     
 
-    void removerPeca(Robo pecaFinal) {
+    public void removerPeca(Robo pecaFinal) {
         if(robos[0]==pecaFinal){
             robos[0].setAtiva(false);
             robosAtivos--;
