@@ -21,11 +21,11 @@ tratar vencedor...................OK
 desistir..........................OK
 
 Diagramas de Metodos: -------------------- Kamahl
-Verificar diagrama de click! uma das guardas, pelo menos "[?????algumacoisa]" precisa ser confirmada. Verificar se todas as variáveis e se as demais guardas estão corretass.
+3 to go!
 
 Diagramas de Sequencia: ------------------ ok?
 
-Diagramas de Maquinas de Estado: --------- Kamahl
+Diagramas de Maquinas de Estado: --------- OK
 
 
 .JAR - Criar um novo apos todos OK
