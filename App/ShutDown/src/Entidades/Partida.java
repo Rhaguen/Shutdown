@@ -110,7 +110,7 @@ public class Partida {
         this.atorJogador.enviarJogada(this.movimento);
     }
 
-    public void click(int x, int y) {
+    public void selecionarRobo(int x, int y) {
         boolean daVez = this.isJogadorDaVez();
         if (daVez){
             Posicao posicao = this.tabuleiro.recuperarPosicao(x, y);

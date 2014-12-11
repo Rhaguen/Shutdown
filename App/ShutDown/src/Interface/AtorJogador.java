@@ -119,7 +119,7 @@ public class AtorJogador {
     }
 
     public void click(int y, int x) {
-        this.partida.click(x, y);
+        this.partida.selecionarRobo(x, y);
         if (!this.partida.isJogadorDaVez()) {
             this.informaNaoDaVez();
         }
