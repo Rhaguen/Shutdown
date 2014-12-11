@@ -154,13 +154,13 @@ public class Partida {
         
         boolean movimentoValido = true;
         
-        // Verificar se é apenas 1 casa de distancia
+        // Verificar se é apenas 1 tile de distancia
         if (this.tabuleiro.calculaDistancia(this.posicaoInicial, this.posicaoFinal) != 1){
             movimentoValido = false;
             this.atorJogador.informaDistanciaInadequada();
         }
         
-        // Verifica se o robo possui pontos de movimento
+        // Verifica se a peça possui pontos de movimento
         if (this.tabuleiro.getRobo(this.posicaoInicial).getMovimento() == 0){
             movimentoValido = false;
             this.atorJogador.informaFaltaPontosMovimento();
