@@ -1,27 +1,14 @@
-Modificar imagens no jogo ---------------- OK
 
-Especificacoes de Requisitos ------------- OK
 
-Releases Notes --------------------------- OK
+Diagramas de Atividades: ----------------- OK?
 
-Diagrama de classes: --------------------- OK
 
-Diagrama de Casos de Uso ----------------- OK
+iniciarPartida..............OK (confirmar eduardo)
+click.......................OK (diagrama de sequência eduardo)
 
-Diagramas de Atividades: ----------------- Raoni
-
-conectar..........................OK
-executar movimento................OK
-finalizar partida.................OK
-receber jogada....................OK
-iniciarPartida....................OK (confirmar eduardo)
-click.............................OK (diagrama de sequência eduardo)
-tratar jogada.....................OK
-tratar vencedor...................OK
-desistir..........................OK
 
 Diagramas de Metodos: -------------------- Kamahl
-3 to go!
+2 to go!
 
 Diagramas de Sequencia: ------------------ ok?
 
