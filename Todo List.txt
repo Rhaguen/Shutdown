@@ -1,4 +1,4 @@
-MOdificar imagens no jogo ---------------- OK
+Modificar imagens no jogo ---------------- OK
 
 Especificacoes de Requisitos ------------- OK
 
@@ -14,28 +14,14 @@ conectar..........................OK
 executar movimento................OK
 finalizar partida.................OK
 receber jogada....................OK
-iniciarPartida....................
-click.............................
+iniciarPartida....................OK (confirmar eduardo)
+click.............................OK (diagrama de sequência eduardo)
 tratar jogada.....................OK
 tratar vencedor...................OK
 desistir..........................OK
 
-verificar se todos os diagramas que 
-referenciam casos de uso estão relacionados
-
-
-Tratar vencedor:
-Parece haver um problema de modelagem 
-no diagrama de sequência (mas talvez 
-eu esteja entendendo errado):
-O que acontece no caso de o método 
-ser chamado e não haver nenhum jogador vencedor?
-Talvez substituir o alt maior por dois opts?
-
-Executar movimento:
-
-
 Diagramas de Metodos: -------------------- Kamahl
+Verificar diagrama de click! uma das guardas, pelo menos "[?????algumacoisa]" precisa ser confirmada. Verificar se todas as variáveis e se as demais guardas estão corretass.
 
 Diagramas de Sequencia: ------------------ ok?
 
