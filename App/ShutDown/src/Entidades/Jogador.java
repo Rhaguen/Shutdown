@@ -27,7 +27,7 @@ public class Jogador implements Jogada{
         robos[1] = new Robo(this);
     }
 
-    public int pecasAMovimentar() {
+    public int robosAMovimentar() {
         int quant = 0;
         if(robos[0].isAtiva()&&(robos[0].getMovimento() > 0)){
             quant ++;

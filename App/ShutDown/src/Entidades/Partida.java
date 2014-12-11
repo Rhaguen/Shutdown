@@ -250,7 +250,7 @@ public class Partida {
     }
     
     public void verificarPassarTurno(){
-        if (this.jogadorAtual.pecasAMovimentar() == 0){
+        if (this.jogadorAtual.robosAMovimentar() == 0){
             this.atorJogador.enviarMensagem(new Mensagem(1, "passarTurno"));
         }
     }
