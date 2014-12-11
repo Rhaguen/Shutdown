@@ -2,13 +2,7 @@
 
 Diagramas de Atividades: ----------------- OK?
 
-
-iniciarPartida..............OK (confirmar eduardo)
-click.......................OK (diagrama de sequência eduardo)
-
-
-Diagramas de Metodos: -------------------- Kamahl
-2 to go!
+Diagramas de Metodos: -------------------- OK
 
 Diagramas de Sequencia: ------------------ ok?
 
