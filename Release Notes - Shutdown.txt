@@ -26,19 +26,19 @@ COMO JOGAR
 
 	  Para jogar uma partida on-line (duas maquinas diferentes):
 
-            1 - Conecte-se à Internet
-            2 - Executar o arquivo "Shutdown.jar"
-	    3 - Clique na opção de menu "Jogo" > "Iniciar"
-            4 - Insira seu nome
-            5 - Digitar o servidor ou deixar em branco para usar o padrão (venus.inf.ufsc.br) 
-            6 - Aguardar um adversário fazer o mesmo procedimento
-            7 - Bom jogo!
+            1 - Conecte-se à Internet;
+            2 - Executar o arquivo "Shutdown.jar" localizado na pasta "JAR - Executavel";
+	    3 - Clique na opção de menu "Jogo" > "Iniciar";
+            4 - Insira seu nome;
+            5 - Digitar o servidor ou deixar em branco para usar o padrão (venus.inf.ufsc.br);
+            6 - Aguardar um adversário fazer o mesmo procedimento;
+            7 - Bom jogo!.
 
 
 DETALHES
 
 	1-Inicio: 
-	O jogador a se conectar por ultimo na partida, terá seus robôs colocados na 
+	O jogador a se conectar por ultimo na partida, terá seus robôs, e seu nome, colocados na 
 	parte de cima da tela e procedera os primeiros movimentos.
 
 	2-Movimentação:
